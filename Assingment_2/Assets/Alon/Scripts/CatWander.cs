@@ -14,9 +14,13 @@ public class CatWander : MonoBehaviour
     bool Set = false;
     bool CanMove = false;
     public float speed=0.5f;
+
+    CatObject CatScript;
+
     // Start is called before the first frame update
     void Start()
     {
+        CatScript = gameObject.GetComponent<CatObject>();
         Boundary = GameObject.FindGameObjectWithTag("Boundary").GetComponent<BoxCollider2D>();
         UpperBound = Boundary.bounds.max.y;
         LowerBond = -Boundary.bounds.max.y;
@@ -45,6 +49,36 @@ public class CatWander : MonoBehaviour
         yield return new WaitForSeconds(Random.Range(3,9)); //wait for some period
         //new target
         Target = new Vector3(Random.Range(LeftBound, RightBound), Random.Range(LowerBond, UpperBound), 0);
+
+        if (gameObject.transform.position.x <= Target.x) //cat moving right
+        {
+            if (gameObject.transform.rotation.x != 180 || gameObject.transform.rotation.x != -180)
+            {
+                CatScript.NeedFood.transform.localPosition = new Vector3(0, 0, 0.01f);
+                CatScript.NeedPlay.transform.localPosition = new Vector3(0, 0, 0.01f);
+                CatScript.NeedWarmth.transform.localPosition = new Vector3(0, 0, 0.01f);
+                CatScript.NeedWater.transform.localPosition = new Vector3(0, 0, 0.01f);
+            
+                gameObject.transform.eulerAngles = new Vector3(0, 180, 0);
+            }
+            
+        }
+        else 
+        {
+            if (gameObject.transform.rotation.x != 0 || gameObject.transform.rotation.x != 360)
+            {
+                CatScript.NeedFood.transform.localPosition = new Vector3(0, 0, -0.01f);
+            CatScript.NeedPlay.transform.localPosition = new Vector3(0, 0, -0.01f);
+            CatScript.NeedWarmth.transform.localPosition = new Vector3(0, 0, -0.01f);
+            CatScript.NeedWater.transform.localPosition = new Vector3(0, 0, -0.01f);
+
+            gameObject.transform.eulerAngles = new Vector3(0, 0, 0);
+            }
+
+                
+
+        }
+
         Debug.Log("target SET");
         CanMove = true;
     }

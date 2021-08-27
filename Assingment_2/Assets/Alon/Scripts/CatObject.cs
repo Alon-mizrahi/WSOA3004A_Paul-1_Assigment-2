@@ -36,19 +36,21 @@ public class CatObject : MonoBehaviour
 
     //UI to display name and speech bubble for needs
     public Canvas Canvas;
-    public Image SpeechBubble;
     public Text Nametxt;
 
-    public Image NeedWater;
-    public Image NeedWarmth;
-    public Image NeedFood;
-    public Image NeedPlay;
+    SpriteRenderer SpeechBubble;
+    public SpriteRenderer NeedWater;
+    public SpriteRenderer NeedWarmth;
+    public SpriteRenderer NeedFood;
+    public SpriteRenderer NeedPlay;
+
+    Image NeedTimer;
 
     public GameObject holder;
-    public GameObject UIHolder;
+    GameObject UIHolder;
     CatUIFollow UIFollow;
 
-    public Image NeedTimer;
+    
 
 
     // Start is called before the first frame update
@@ -158,7 +160,7 @@ public class CatObject : MonoBehaviour
         }
         else
         {
-            Debug.Log("outta time sucker");
+            //Debug.Log("outta time sucker");
         }
     }
 
@@ -175,16 +177,16 @@ public class CatObject : MonoBehaviour
 
         NeedTimer = GameObject.Find("TimerUI").GetComponent<Image>();
 
-        SpeechBubble = gameObject.transform.Find("SpeechBubble_").GetComponent<Image>();
+        SpeechBubble = gameObject.transform.Find("CatSpeechBubble").GetComponent<SpriteRenderer>();
         Nametxt = gameObject.transform.Find("Name_").GetComponent<Text>();
 
-        SpeechBubble.name = "SpeechBubble_" + Name;
+        //SpeechBubble.name = "SpeechBubble_" + Name;
         Nametxt.name = "Name_"+ Name;
 
-        NeedWater = SpeechBubble.transform.Find("Water").GetComponent<Image>();
-        NeedWarmth = SpeechBubble.transform.Find("Warmth").GetComponent<Image>();
-        NeedFood = SpeechBubble.transform.Find("Food").GetComponent<Image>();
-        NeedPlay = SpeechBubble.transform.Find("Play").GetComponent<Image>();
+        NeedWater = SpeechBubble.transform.Find("CatNeedWater").GetComponent<SpriteRenderer>();
+        NeedWarmth = SpeechBubble.transform.Find("CatNeedFire").GetComponent<SpriteRenderer>();
+        NeedFood = SpeechBubble.transform.Find("CatNeedFood").GetComponent<SpriteRenderer>();
+        NeedPlay = SpeechBubble.transform.Find("CatNeedPlay").GetComponent<SpriteRenderer>();
 
         UIHolder = Instantiate(holder, gameObject.transform.position, Quaternion.identity);
 
@@ -192,28 +194,27 @@ public class CatObject : MonoBehaviour
         UIHolder.name = "UI_" + Name;
 
 
-        SpeechBubble.transform.SetParent(UIHolder.transform);
-        //SpeechBubble.rectTransform.position = new Vector2(40, 20);
-        SpeechBubble.transform.position = new Vector2(40, 20);
+        //SpeechBubble.transform.SetParent(UIHolder.transform);
+        //SpeechBubble.transform.position = new Vector2(40, 20);
 
         Nametxt.text = Name;
         Nametxt.transform.SetParent(UIHolder.transform);
         Nametxt.transform.position = new Vector2(0, 0);
 
-        NeedWater.transform.SetParent(SpeechBubble.transform);
-        NeedWater.transform.position = SpeechBubble.transform.position;
+        //NeedWater.transform.SetParent(SpeechBubble.transform);
+        //NeedWater.transform.position = SpeechBubble.transform.position;
 
-        NeedWarmth.transform.SetParent(SpeechBubble.transform);
-        NeedWarmth.transform.position = SpeechBubble.transform.position;
+        //NeedWarmth.transform.SetParent(SpeechBubble.transform);
+        //NeedWarmth.transform.position = SpeechBubble.transform.position;
 
-        NeedFood.transform.SetParent(SpeechBubble.transform);
-        NeedFood.transform.position = SpeechBubble.transform.position;
+        //NeedFood.transform.SetParent(SpeechBubble.transform);
+        //NeedFood.transform.position = SpeechBubble.transform.position;
 
-        NeedPlay.transform.SetParent(SpeechBubble.transform);
-        NeedPlay.transform.position = SpeechBubble.transform.position;
+        //NeedPlay.transform.SetParent(SpeechBubble.transform);
+        //NeedPlay.transform.position = SpeechBubble.transform.position;
 
         NeedTimer.transform.SetParent(UIHolder.transform);
-        NeedTimer.transform.position = new Vector2(-10, 20);
+        NeedTimer.transform.position = new Vector2(4.5f, 25);
         NeedTimer.enabled = false;
 
         SpeechBubble.enabled = false;
