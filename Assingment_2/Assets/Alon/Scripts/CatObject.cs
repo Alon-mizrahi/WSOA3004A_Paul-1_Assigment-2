@@ -11,20 +11,24 @@ public class CatObject : MonoBehaviour
     
     public string[] NeedList = {"Warmth", "Food", "Water", "Play" };  //list of needs of cats
     public string[] NameList = { "Juliette", "Alon", "Rob", "Milo", "Simba", "George", "Sam", "Boots", "Ziggy", "Vuk" }; //list of names to choose
-    public string CurrentNeed;                                                                                                        //do a sprite array to randomly choose sprite
+    //do a sprite array to randomly choose sprite
+    public string CurrentNeed;                                                         
 
     //Cat Timing data
-    public float Max_NeedTime =15f;
-    public float Min_NeedTime= 10f;
+    public int Max_NeedTime =15;
+    public int Min_NeedTime= 10;
     float NextNeedTime;
+
+    public float NeedCountDownTimerMax = 15f;//how long a cats need can go unsatisfied
+    public float NeedTimeLeft;
 
     //Cat Moods
     public bool hasNeed = false; //whether cat has a need or not
-    bool NeedSet = false;
+    public bool NeedSet = false;
     public bool isBusy = false; //use for when a cat is at a station. so not to assign a need or wander
 
     //Cat AI variables
-    //bool CanWander = true; //can cat free roam
+    public bool CanWander = true; //can cat free roam
     //if cat at a station filling need, cant wander
     //if cat need unfifilled AI target is exit
 
@@ -44,10 +48,14 @@ public class CatObject : MonoBehaviour
     public GameObject UIHolder;
     CatUIFollow UIFollow;
 
+    public Image NeedTimer;
+
 
     // Start is called before the first frame update
     void Start()
     {
+        NeedTimeLeft = NeedCountDownTimerMax;
+
         UIFollow = gameObject.GetComponentInChildren<CatUIFollow>();
         Name = GetName();
         SetUI();
@@ -57,9 +65,13 @@ public class CatObject : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (NeedSet == false)
+        if (hasNeed == false)
         {
-            //SetNeed();
+            SetNeed();
+        }
+        else
+        {
+            NeedCountDown();
         }
         
     }
@@ -73,25 +85,82 @@ public class CatObject : MonoBehaviour
         //select random new need from array
         //select time period for need to start
 
-        if (hasNeed == false) //needs a new need
-        {
             if (NeedSet == false)
             {
                 NextNeedTime = Time.time + Random.Range(Min_NeedTime, Max_NeedTime);
-                Debug.Log(NextNeedTime);
+                Debug.Log(Name+": Time till need "+ NextNeedTime);
                 NeedSet = true;
             }
 
             if (NextNeedTime <= Time.time)
             {
+                //Debug.Log("WE HERE");
                 hasNeed = true;
                 NeedSet = false;
                 CurrentNeed = NeedList[Random.Range(0, NeedList.Length)];
-                Debug.Log(CurrentNeed);
+                //Debug.Log("1"+CurrentNeed);
+                SetUINeed(CurrentNeed);
+                //NeedCountDown();
             }
-        }
     }
 
+    void SetUINeed(string CurrentNeed)
+    {
+        Debug.Log(CurrentNeed);
+
+        switch (CurrentNeed)
+        {
+            case "Warmth":
+                SpeechBubble.enabled = true;
+                NeedWater.enabled = false;
+                NeedWarmth.enabled = true;
+                NeedFood.enabled = false;
+                NeedPlay.enabled = false;
+                break;
+
+            case "Food":
+                SpeechBubble.enabled = true;
+                NeedWater.enabled = false;
+                NeedWarmth.enabled = false;
+                NeedFood.enabled = true;
+                NeedPlay.enabled = false;
+                break;
+
+            case "Water":
+                SpeechBubble.enabled = true;
+                NeedWater.enabled = true;
+                NeedWarmth.enabled = false;
+                NeedFood.enabled = false;
+                NeedPlay.enabled = false;
+                break;
+
+            case "Play":
+                SpeechBubble.enabled = true;
+                NeedWater.enabled = false;
+                NeedWarmth.enabled = false;
+                NeedFood.enabled = false;
+                NeedPlay.enabled = true;
+                break;
+        }
+
+    }
+    
+    void NeedCountDown()
+    {
+        //NeedCountDownTimerMax
+        //public float NeedTimeLeft;
+
+        NeedTimer.enabled = true;
+        if (NeedTimeLeft > 0)
+        {
+            NeedTimeLeft -= Time.deltaTime;
+            NeedTimer.fillAmount = NeedTimeLeft / NeedCountDownTimerMax;
+        }
+        else
+        {
+            Debug.Log("outta time sucker");
+        }
+    }
 
     string GetName()
     {
@@ -103,6 +172,8 @@ public class CatObject : MonoBehaviour
         gameObject.name = Name;
 
         Canvas = GameObject.Find("Canvas").GetComponent<Canvas>();
+
+        NeedTimer = GameObject.Find("TimerUI").GetComponent<Image>();
 
         SpeechBubble = gameObject.transform.Find("SpeechBubble_").GetComponent<Image>();
         Nametxt = gameObject.transform.Find("Name_").GetComponent<Text>();
@@ -120,24 +191,30 @@ public class CatObject : MonoBehaviour
         UIHolder.transform.SetParent(Canvas.transform);
         UIHolder.name = "UI_" + Name;
 
+
         SpeechBubble.transform.SetParent(UIHolder.transform);
-        SpeechBubble.transform.position = Vector3.zero;
+        //SpeechBubble.rectTransform.position = new Vector2(40, 20);
+        SpeechBubble.transform.position = new Vector2(40, 20);
 
         Nametxt.text = Name;
         Nametxt.transform.SetParent(UIHolder.transform);
-        Nametxt.transform.position = Vector3.zero;
+        Nametxt.transform.position = new Vector2(0, 0);
 
         NeedWater.transform.SetParent(SpeechBubble.transform);
-        NeedWater.transform.position = Vector3.zero;
+        NeedWater.transform.position = SpeechBubble.transform.position;
 
         NeedWarmth.transform.SetParent(SpeechBubble.transform);
-        NeedWarmth.transform.position = Vector3.zero;
+        NeedWarmth.transform.position = SpeechBubble.transform.position;
 
         NeedFood.transform.SetParent(SpeechBubble.transform);
-        NeedFood.transform.position = Vector3.zero;
+        NeedFood.transform.position = SpeechBubble.transform.position;
 
         NeedPlay.transform.SetParent(SpeechBubble.transform);
-        NeedPlay.transform.position = Vector3.zero;
+        NeedPlay.transform.position = SpeechBubble.transform.position;
+
+        NeedTimer.transform.SetParent(UIHolder.transform);
+        NeedTimer.transform.position = new Vector2(-10, 20);
+        NeedTimer.enabled = false;
 
         SpeechBubble.enabled = false;
         NeedPlay.enabled = false;

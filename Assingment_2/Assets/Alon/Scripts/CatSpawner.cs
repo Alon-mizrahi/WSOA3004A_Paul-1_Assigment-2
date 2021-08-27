@@ -5,8 +5,8 @@ using UnityEngine;
 public class CatSpawner : MonoBehaviour
 {
     public GameObject Cat;  //cat prefab
-    public float Min_SpawnTime = 30f;
-    public float Max_SpawnTime = 40f;
+    public int Min_SpawnTime = 30;
+    public int Max_SpawnTime = 40;
     bool HaveSpawn = false;
     float NextSpawnTime;
 
