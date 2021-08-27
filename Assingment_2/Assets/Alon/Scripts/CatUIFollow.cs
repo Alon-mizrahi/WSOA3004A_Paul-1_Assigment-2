@@ -36,7 +36,7 @@ public class CatUIFollow : MonoBehaviour
 
     public void GetUI(GameObject UI)
     {
-        Debug.Log("This is not the problem");
+        //Debug.Log("This is not the problem");
         //NameLabel = Cat.Nametxt;
         //NeedBubble = Cat.SpeechBubble;
         UIHolder = UI;
