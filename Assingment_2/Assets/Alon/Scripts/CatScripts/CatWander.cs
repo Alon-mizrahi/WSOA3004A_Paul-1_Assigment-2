@@ -17,6 +17,8 @@ public class CatWander : MonoBehaviour
 
     CatObject CatScript;
 
+    public bool NeedFailed = false;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -40,6 +42,11 @@ public class CatWander : MonoBehaviour
         else if(CanMove==true)
         {
             MoveTowards();
+        }
+        else if (NeedFailed == true)
+        {
+            Debug.Log("MOVING TOWARDS EXIT");
+            MoveExit();
         }
     }
 
@@ -74,9 +81,6 @@ public class CatWander : MonoBehaviour
 
             gameObject.transform.eulerAngles = new Vector3(0, 0, 0);
             }
-
-                
-
         }
 
         Debug.Log("target SET");
@@ -85,22 +89,46 @@ public class CatWander : MonoBehaviour
 
     void MoveTowards()
     {
-        //gameObject.transform.position = Vector3.Lerp(gameObject.transform.position, Target, Time.time*0.1f);
-        gameObject.transform.position = Vector3.MoveTowards(gameObject.transform.position, Target, Time.time*speed);
+        gameObject.transform.position = Vector3.MoveTowards(gameObject.transform.position, Target, Time.deltaTime*speed);
         if (gameObject.transform.position == Target) { Set = false; CanMove = false; }
     }
 
 
     private void OnMousedown()
     {
-        Set = false;
-        CanMove = false;
+        if (NeedFailed == false)
+        {
+            Set = false;
+            CanMove = false;
+        }
+        
     }
 
     private void OnMouseUp()
     {
-        Target = gameObject.transform.position;
+        if (NeedFailed == false)
+        {
+            Target = gameObject.transform.position;
+        }      
     }
 
 
+
+    public void NeedFail(Transform Exit)
+    {
+        Debug.Log("NEED FAILED");
+        Set = true;
+        CanMove = false;
+        NeedFailed = true;
+        speed = speed*1.6f;
+
+        Target = Exit.position;
+
+        gameObject.transform.eulerAngles = new Vector3(0, 0, 0);
+    }
+
+    void MoveExit()
+    {
+        gameObject.transform.position = Vector3.MoveTowards(gameObject.transform.position, Target, Time.deltaTime * speed);
+    }
 }

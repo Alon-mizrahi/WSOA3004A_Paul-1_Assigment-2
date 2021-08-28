@@ -10,7 +10,7 @@ public class CatObject : MonoBehaviour
     public string Name;
     
     public string[] NeedList = {"Warmth", "Food", "Water", "Play" };  //list of needs of cats
-    public string[] NameList = { "Juliette", "Alon", "Rob", "Milo", "Simba", "George", "Sam", "Boots", "Ziggy", "Vuk" }; //list of names to choose
+    public string[] NameList = { "Juliette", "Alon", "Rob", "Milo", "Simba", "George", "Sam", "Boots", "Ziggy", "Vuk", "Pam" }; //list of names to choose
     //do a sprite array to randomly choose sprite
     public string CurrentNeed;                                                         
 
@@ -32,7 +32,10 @@ public class CatObject : MonoBehaviour
     //if cat at a station filling need, cant wander
     //if cat need unfifilled AI target is exit
 
-
+    //cat leaving things
+    CatWander WanderScript;
+    Transform Exit;
+    bool Failed = false;
 
     //UI to display name and speech bubble for needs
     public Canvas Canvas;
@@ -46,8 +49,8 @@ public class CatObject : MonoBehaviour
 
     Image NeedTimer;
 
-    public GameObject holder;
-    GameObject UIHolder;
+    public GameObject holder; //this is the prefab
+    public GameObject UIHolder; //this is receranc to that object^
     CatUIFollow UIFollow;
 
     
@@ -57,6 +60,9 @@ public class CatObject : MonoBehaviour
     void Start()
     {
         NeedTimeLeft = NeedCountDownTimerMax;
+
+        WanderScript = gameObject.GetComponent<CatWander>();
+        Exit = GameObject.Find("Exit").GetComponent<Transform>();
 
         UIFollow = gameObject.GetComponentInChildren<CatUIFollow>();
         Name = GetName();
@@ -158,9 +164,15 @@ public class CatObject : MonoBehaviour
             NeedTimeLeft -= Time.deltaTime;
             NeedTimer.fillAmount = NeedTimeLeft / NeedCountDownTimerMax;
         }
-        else
+        else //Need not met
         {
-            //Debug.Log("outta time sucker");
+            //Wander target == to door,
+            if (Failed == false)
+            {
+                Failed = true;
+                WanderScript.NeedFail(Exit);
+            }
+            
         }
     }
 
