@@ -56,7 +56,7 @@ public class catGen : MonoBehaviour
                 GenerateCat();
             }
 
-            if (catCount < catThres)
+            if (catCount > catThres)
             {
                 resetCat();
                 catCount = 0;

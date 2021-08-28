@@ -1396,7 +1396,7 @@ MonoBehaviour:
   catBodyRoll: 0
   catFancy: 0
   catCount: 0
-  catThres: 60
+  catThres: 300
   catEmpty: {fileID: 21300000, guid: 132f49c193aefa34c9f39304a3955289, type: 3}
   catmarellaDans: 0
   isFat: 0
