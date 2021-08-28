@@ -7,7 +7,7 @@ public class CatClickAndDrag : MonoBehaviour
 
     public float smoothSpeed = 0.125f;
 
-    public LayerMask DraggableMask;
+    //public LayerMask DraggableMask;
 
 
 
