@@ -34,19 +34,21 @@ public class CatWander : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Target == gameObject.transform.position && Set == false)
-        {
-            Debug.Log("Setting new target");
-            StartCoroutine("SetTarget");
-        }
-        else if(CanMove==true)
-        {
-            MoveTowards();
-        }
-        else if (NeedFailed == true)
-        {
-            Debug.Log("MOVING TOWARDS EXIT");
-            MoveExit();
+        if (CatScript.CanWander == true) { 
+            if (Target == gameObject.transform.position && Set == false)
+            {
+                Debug.Log("Setting new target");
+                StartCoroutine("SetTarget");
+            }
+            else if(CanMove==true)
+            {
+                MoveTowards();
+            }
+            else if (NeedFailed == true)
+            {
+                Debug.Log("MOVING TOWARDS EXIT");
+                MoveExit();
+            }
         }
     }
 

@@ -53,7 +53,10 @@ public class CatObject : MonoBehaviour
     public GameObject UIHolder; //this is receranc to that object^
     CatUIFollow UIFollow;
 
-    
+    //cat Station Things
+    public bool AtStation = false;
+    public float StationCountDownTimerMax = 15f;//how long a cats need can go unsatisfied
+    public float StationTimeLeft;
 
 
     // Start is called before the first frame update
@@ -73,13 +76,19 @@ public class CatObject : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (hasNeed == false)
+        if (AtStation == false)
+        { 
+            if (hasNeed == false)
+            {
+                SetNeed();
+            }
+            else
+            {
+                NeedCountDown();
+            }
+        }else if (AtStation == true)
         {
-            SetNeed();
-        }
-        else
-        {
-            NeedCountDown();
+            BeingSatisfied();
         }
         
     }
@@ -159,6 +168,7 @@ public class CatObject : MonoBehaviour
         //public float NeedTimeLeft;
 
         NeedTimer.enabled = true;
+        NeedTimer.color = Color.red;
         if (NeedTimeLeft > 0)
         {
             NeedTimeLeft -= Time.deltaTime;
@@ -169,6 +179,7 @@ public class CatObject : MonoBehaviour
             //Wander target == to door,
             if (Failed == false)
             {
+                CurrentNeed = "";
                 Failed = true;
                 WanderScript.NeedFail(Exit);
             }
@@ -225,6 +236,7 @@ public class CatObject : MonoBehaviour
         //NeedPlay.transform.SetParent(SpeechBubble.transform);
         //NeedPlay.transform.position = SpeechBubble.transform.position;
 
+        NeedTimer.name = "Timer_" + Name;
         NeedTimer.transform.SetParent(UIHolder.transform);
         NeedTimer.transform.position = new Vector2(4.5f, 25);
         NeedTimer.enabled = false;
@@ -238,6 +250,41 @@ public class CatObject : MonoBehaviour
         UIFollow.GetUI(UIHolder);
     }
 
+    void BeingSatisfied()
+    {
+        //start station countdown
+        //UI timer. change colour to blue
 
+        NeedTimer.enabled = true;
+        NeedTimer.color = Color.green;
+        if (StationTimeLeft > 0)
+        {
+            StationTimeLeft -= Time.deltaTime;
+            NeedTimer.fillAmount = StationTimeLeft / StationCountDownTimerMax;
+        }
+        else //Done at station
+        {
+            CanWander = true;
+            hasNeed = false;
+            AtStation = false;
+            ResetTimer();
+            //turn off speechbuble and need
+        }
 
+    }
+
+    public void ResetTimer()
+    {
+        StationTimeLeft = StationCountDownTimerMax;
+        NeedTimeLeft = NeedCountDownTimerMax;
+    }
+
+    public void TurnOffSpeechBubble()
+    {
+        SpeechBubble.enabled = false;
+        NeedWater.enabled = false;
+        NeedWarmth.enabled = false;
+        NeedFood.enabled = false;
+        NeedPlay.enabled = false;
+    }
 }
