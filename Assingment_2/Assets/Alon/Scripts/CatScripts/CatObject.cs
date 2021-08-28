@@ -57,7 +57,7 @@ public class CatObject : MonoBehaviour
     public bool AtStation = false;
     public float StationCountDownTimerMax = 15f;//how long a cats need can go unsatisfied
     public float StationTimeLeft;
-
+    public bool WasAtStation = false;
 
     // Start is called before the first frame update
     void Start()
@@ -264,10 +264,13 @@ public class CatObject : MonoBehaviour
         }
         else //Done at station
         {
+            WasAtStation = true;
+            CurrentNeed = "";
             CanWander = true;
             hasNeed = false;
             AtStation = false;
             ResetTimer();
+            
             //turn off speechbuble and need
         }
 
