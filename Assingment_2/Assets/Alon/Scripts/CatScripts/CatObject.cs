@@ -269,6 +269,7 @@ public class CatObject : MonoBehaviour
             CanWander = true;
             hasNeed = false;
             AtStation = false;
+            gameObject.GetComponent<CatClickAndDrag>().CanDrag = true;
             ResetTimer();
             
             //turn off speechbuble and need

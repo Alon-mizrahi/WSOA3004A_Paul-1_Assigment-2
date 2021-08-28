@@ -1534,6 +1534,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   smoothSpeed: 0.1
+  CanDrag: 1
 --- !u!114 &396151843
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1583,6 +1584,7 @@ MonoBehaviour:
   AtStation: 0
   StationCountDownTimerMax: 15
   StationTimeLeft: 0
+  WasAtStation: 0
 --- !u!61 &396151844
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -1871,6 +1873,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   smoothSpeed: 0.1
+  CanDrag: 1
 --- !u!50 &445909516
 Rigidbody2D:
   serializedVersion: 4
@@ -1941,6 +1944,7 @@ MonoBehaviour:
   AtStation: 0
   StationCountDownTimerMax: 15
   StationTimeLeft: 0
+  WasAtStation: 0
 --- !u!114 &445909518
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3774,6 +3778,7 @@ MonoBehaviour:
   AtStation: 0
   StationCountDownTimerMax: 15
   StationTimeLeft: 0
+  WasAtStation: 0
 --- !u!135 &1107035341
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -3867,6 +3872,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   smoothSpeed: 0.125
+  CanDrag: 1
 --- !u!114 &1107035346
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4171,6 +4177,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   smoothSpeed: 0.125
+  CanDrag: 1
 --- !u!114 &1348786426
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4220,6 +4227,7 @@ MonoBehaviour:
   AtStation: 0
   StationCountDownTimerMax: 15
   StationTimeLeft: 0
+  WasAtStation: 0
 --- !u!135 &1348786427
 SphereCollider:
   m_ObjectHideFlags: 0

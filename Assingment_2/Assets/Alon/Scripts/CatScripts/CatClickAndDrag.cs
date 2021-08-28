@@ -6,19 +6,21 @@ public class CatClickAndDrag : MonoBehaviour
 {
 
     public float smoothSpeed = 0.125f;
-
+    public bool CanDrag = true;
     //public LayerMask DraggableMask;
 
 
 
     private void OnMouseDrag()
     {
+        if (CanDrag == true)
+        {
+            Vector2 mouseposition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
 
-        Vector2 mouseposition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-
-        Vector2 desiredPosition = mouseposition;
-        Vector2 smoothedPosition = Vector2.Lerp(transform.position, desiredPosition, smoothSpeed);
-        transform.position = smoothedPosition;   
+            Vector2 desiredPosition = mouseposition;
+            Vector2 smoothedPosition = Vector2.Lerp(transform.position, desiredPosition, smoothSpeed);
+            transform.position = smoothedPosition; 
+        }
     }
 
 

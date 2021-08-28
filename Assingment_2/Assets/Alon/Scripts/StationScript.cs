@@ -27,6 +27,7 @@ public class StationScript : MonoBehaviour
             collision.gameObject.GetComponent<CatObject>().AtStation = true;
             collision.gameObject.GetComponent<CatObject>().ResetTimer();
             collision.gameObject.GetComponent<CatObject>().CanWander = false;
+            collision.gameObject.GetComponent<CatClickAndDrag>().CanDrag = false;
             collision.gameObject.GetComponent<CatObject>().TurnOffSpeechBubble();
         }
     }
