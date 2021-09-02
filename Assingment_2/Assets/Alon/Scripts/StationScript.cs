@@ -36,7 +36,7 @@ public class StationScript : MonoBehaviour
     {
         if (collision.gameObject.tag == "Cat" && collision.gameObject.GetComponent<CatObject>().WasAtStation == true)
         {
-            Debug.Log(collision.gameObject.name);
+            Debug.Log("Cat Left");
             collision.gameObject.GetComponent<CatObject>().WasAtStation = false;
             CatCount--;
             //collision.gameObject.GetComponent<CatObject>().ResetTimer();

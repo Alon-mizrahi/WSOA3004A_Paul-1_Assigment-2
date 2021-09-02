@@ -34,7 +34,7 @@ public class CatObject : MonoBehaviour
 
     //cat leaving things
     CatWander WanderScript;
-    Transform Exit;
+    public Transform Exit;
     bool Failed = false;
 
     //UI to display name and speech bubble for needs

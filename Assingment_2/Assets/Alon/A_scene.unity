@@ -228,8 +228,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Cat: {fileID: 820245534046142843, guid: 2595e0ad78373474aa142673c72f9d72, type: 3}
-  Min_SpawnTime: 30
-  Max_SpawnTime: 40
+  Min_SpawnTime: 10
+  Max_SpawnTime: 20
+  CurrentCats: []
 --- !u!4 &70828565
 Transform:
   m_ObjectHideFlags: 0
@@ -238,7 +239,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 70828563}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -13.21, y: -0.2, z: -2.43}
+  m_LocalPosition: {x: 14.02, y: -0.2, z: -2.43}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -354,7 +355,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 44ab26a53e35887429acec2fd93359aa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  MaxNumberOfCats: 5
+  MaxNumberOfCats: 1
   CatCount: 0
   StationNeed: 
 --- !u!61 &149370419
@@ -370,7 +371,7 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.5972265, y: -2.708547}
+  m_Offset: {x: -0.6653564, y: -2.679348}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -381,7 +382,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 5.0934696, y: 2.2282324}
+  m_Size: {x: 3.9839282, y: 1.4301412}
   m_EdgeRadius: 0
 --- !u!212 &149370420
 SpriteRenderer:
@@ -443,7 +444,7 @@ Transform:
   m_GameObject: {fileID: 149370417}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 7.92, y: -0.43, z: 1}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 1.0185, y: 1.0185, z: 1.0185}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 14
@@ -1197,6 +1198,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Target: {x: 0, y: 0, z: 0}
+  Set: 0
+  CanMove: 0
   speed: 3
   NeedFailed: 0
 --- !u!114 &396151842
@@ -1251,6 +1254,7 @@ MonoBehaviour:
   NeedSet: 0
   isBusy: 0
   CanWander: 1
+  Exit: {fileID: 0}
   Canvas: {fileID: 0}
   Nametxt: {fileID: 0}
   NeedWater: {fileID: 0}
@@ -1397,7 +1401,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 44ab26a53e35887429acec2fd93359aa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  MaxNumberOfCats: 5
+  MaxNumberOfCats: 1
   CatCount: 0
   StationNeed: 
 --- !u!61 &445818237
@@ -1413,7 +1417,7 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.6309924, y: -2.801684}
+  m_Offset: {x: -0.5613935, y: -2.7808037}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -1424,7 +1428,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 3.2177706, y: 2.1342163}
+  m_Size: {x: 2.215547, y: 1.5635064}
   m_EdgeRadius: 0
 --- !u!212 &445818238
 SpriteRenderer:
@@ -1485,7 +1489,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 445818235}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 8.85, y: 6.33, z: 1}
+  m_LocalPosition: {x: -7.7, y: 6.33, z: 1}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -1676,7 +1680,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 44ab26a53e35887429acec2fd93359aa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  MaxNumberOfCats: 5
+  MaxNumberOfCats: 1
   CatCount: 0
   StationNeed: 
 --- !u!61 &532533037
@@ -1692,7 +1696,7 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.62660193, y: -2.793553}
+  m_Offset: {x: -0.58401203, y: -2.8077497}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -1703,7 +1707,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 3.4536061, y: 2.1082}
+  m_Size: {x: 2.5734158, y: 1.3983688}
   m_EdgeRadius: 0
 --- !u!212 &532533038
 SpriteRenderer:
@@ -1801,7 +1805,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 44ab26a53e35887429acec2fd93359aa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  MaxNumberOfCats: 5
+  MaxNumberOfCats: 1
   CatCount: 0
   StationNeed: 
 --- !u!61 &557380721
@@ -1817,7 +1821,7 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.6776438, y: -2.6621723}
+  m_Offset: {x: -0.55259717, y: -2.4746025}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -1828,7 +1832,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 3.8021727, y: 1.9631939}
+  m_Size: {x: 2.4683416, y: 1.8381475}
   m_EdgeRadius: 0
 --- !u!212 &557380722
 SpriteRenderer:
@@ -1889,8 +1893,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 557380719}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -1.87, y: 3.9, z: 0}
-  m_LocalScale: {x: 0.60143, y: 0.60143, z: 0.60143}
+  m_LocalPosition: {x: -0.21, y: 3.9, z: 1}
+  m_LocalScale: {x: 0.73621047, y: 0.73621047, z: 0.73621047}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 13
@@ -2755,6 +2759,7 @@ MonoBehaviour:
   NeedSet: 0
   isBusy: 0
   CanWander: 1
+  Exit: {fileID: 0}
   Canvas: {fileID: 0}
   Nametxt: {fileID: 8790273963656873652, guid: 06e015b36e20ec940bee767c8e5307a2, type: 3}
   NeedWater: {fileID: 0}
@@ -3204,6 +3209,7 @@ MonoBehaviour:
   NeedSet: 0
   isBusy: 0
   CanWander: 1
+  Exit: {fileID: 0}
   Canvas: {fileID: 0}
   Nametxt: {fileID: 8790273963656873652, guid: 06e015b36e20ec940bee767c8e5307a2, type: 3}
   NeedWater: {fileID: 0}
@@ -4227,7 +4233,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2107158890}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -10.02, y: -0.21, z: 0}
+  m_LocalPosition: {x: 10.21, y: 0.55, z: 0}
   m_LocalScale: {x: 10, y: 20, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
