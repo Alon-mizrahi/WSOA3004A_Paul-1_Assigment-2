@@ -182,6 +182,15 @@ public class CatObject : MonoBehaviour
             {
                 CurrentNeed = "";
                 Failed = true;
+
+                NeedPlay.enabled = false;
+                NeedFood.enabled = false;
+                NeedWarmth.enabled = false;
+                NeedWater.enabled = false;
+
+                SpeechBubble.enabled = true;
+                Exclimation.enabled = true;
+
                 WanderScript.NeedFail(Exit);
             }
             

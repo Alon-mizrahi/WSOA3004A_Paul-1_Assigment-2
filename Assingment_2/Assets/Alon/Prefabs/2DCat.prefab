@@ -566,6 +566,7 @@ MonoBehaviour:
   NeedWarmth: {fileID: 0}
   NeedFood: {fileID: 0}
   NeedPlay: {fileID: 0}
+  Exclimation: {fileID: 0}
   holder: {fileID: 2386166062835950239, guid: 30d45af717e837d45b3fd079e7cdc326, type: 3}
   UIHolder: {fileID: 0}
   AtStation: 0
@@ -1202,7 +1203,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5189076350608088476}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: -0.01}
+  m_LocalPosition: {x: -0.15, y: -0.03, z: 0.01}
   m_LocalScale: {x: 0.46, y: 0.46, z: 0.46}
   m_Children: []
   m_Father: {fileID: 820245533475425174}
