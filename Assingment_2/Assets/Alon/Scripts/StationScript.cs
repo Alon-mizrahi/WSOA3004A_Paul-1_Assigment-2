@@ -34,10 +34,10 @@ public class StationScript : MonoBehaviour
 
     private void OnTriggerExit2D(Collider2D collision)
     {
-        if (collision.gameObject.tag == "Cat" && collision.gameObject.GetComponent<CatObject>().WasAtStation == true)
+        if (collision.gameObject.tag == "Cat")// && collision.gameObject.GetComponent<CatObject>().WasAtStation == true)
         {
             Debug.Log("Cat Left");
-            collision.gameObject.GetComponent<CatObject>().WasAtStation = false;
+            //collision.gameObject.GetComponent<CatObject>().WasAtStation = false;
             CatCount--;
             //collision.gameObject.GetComponent<CatObject>().ResetTimer();
             //collision.gameObject.GetComponent<CatObject>().CanWander = true;

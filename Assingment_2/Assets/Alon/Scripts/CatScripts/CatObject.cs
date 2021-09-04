@@ -46,6 +46,7 @@ public class CatObject : MonoBehaviour
     public SpriteRenderer NeedWarmth;
     public SpriteRenderer NeedFood;
     public SpriteRenderer NeedPlay;
+    public SpriteRenderer Exclimation;
 
     Image NeedTimer;
 
@@ -57,7 +58,7 @@ public class CatObject : MonoBehaviour
     public bool AtStation = false;
     public float StationCountDownTimerMax = 15f;//how long a cats need can go unsatisfied
     public float StationTimeLeft;
-    public bool WasAtStation = false;
+    //public bool WasAtStation = false;
 
     // Start is called before the first frame update
     void Start()
@@ -210,6 +211,8 @@ public class CatObject : MonoBehaviour
         NeedWarmth = SpeechBubble.transform.Find("CatNeedFire").GetComponent<SpriteRenderer>();
         NeedFood = SpeechBubble.transform.Find("CatNeedFood").GetComponent<SpriteRenderer>();
         NeedPlay = SpeechBubble.transform.Find("CatNeedPlay").GetComponent<SpriteRenderer>();
+        Exclimation = SpeechBubble.transform.Find("ExclamationMark").GetComponent<SpriteRenderer>();
+
 
         UIHolder = Instantiate(holder, gameObject.transform.position, Quaternion.identity);
 
@@ -246,6 +249,7 @@ public class CatObject : MonoBehaviour
         NeedFood.enabled = false;
         NeedWarmth.enabled = false;
         NeedWater.enabled = false;
+        Exclimation.enabled = false;
 
         UIFollow.GetUI(UIHolder);
     }
@@ -264,7 +268,7 @@ public class CatObject : MonoBehaviour
         }
         else //Done at station
         {
-            WasAtStation = true;
+            //WasAtStation = true;
             CurrentNeed = "";
             CanWander = true;
             hasNeed = false;

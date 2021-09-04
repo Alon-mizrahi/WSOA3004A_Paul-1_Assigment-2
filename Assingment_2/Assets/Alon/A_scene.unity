@@ -335,7 +335,7 @@ GameObject:
   - component: {fileID: 149370421}
   - component: {fileID: 149370420}
   - component: {fileID: 149370419}
-  - component: {fileID: 149370418}
+  - component: {fileID: 149370422}
   m_Layer: 0
   m_Name: Station_Play
   m_TagString: Untagged
@@ -343,21 +343,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &149370418
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 149370417}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 44ab26a53e35887429acec2fd93359aa, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  MaxNumberOfCats: 1
-  CatCount: 0
-  StationNeed: 
 --- !u!61 &149370419
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -449,6 +434,22 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 14
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &149370422
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 149370417}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 48a5545ea16254f4aa3d2fd99bd79245, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  MaxNumberOfCats: 5
+  StationNeed: 
+  CurrentCats: []
+  ArrFull: 0
 --- !u!1 &231551859
 GameObject:
   m_ObjectHideFlags: 0
@@ -1261,12 +1262,12 @@ MonoBehaviour:
   NeedWarmth: {fileID: 0}
   NeedFood: {fileID: 0}
   NeedPlay: {fileID: 0}
+  Exclimation: {fileID: 0}
   holder: {fileID: 2386166062835950239, guid: 30d45af717e837d45b3fd079e7cdc326, type: 3}
   UIHolder: {fileID: 0}
   AtStation: 0
   StationCountDownTimerMax: 15
   StationTimeLeft: 0
-  WasAtStation: 0
 --- !u!61 &396151844
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -1381,7 +1382,7 @@ GameObject:
   - component: {fileID: 445818239}
   - component: {fileID: 445818238}
   - component: {fileID: 445818237}
-  - component: {fileID: 445818236}
+  - component: {fileID: 445818240}
   m_Layer: 0
   m_Name: Station_Food
   m_TagString: Untagged
@@ -1389,21 +1390,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &445818236
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 445818235}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 44ab26a53e35887429acec2fd93359aa, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  MaxNumberOfCats: 1
-  CatCount: 0
-  StationNeed: 
 --- !u!61 &445818237
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -1495,6 +1481,22 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 15
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &445818240
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 445818235}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 48a5545ea16254f4aa3d2fd99bd79245, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  MaxNumberOfCats: 1
+  StationNeed: 
+  CurrentCats: []
+  ArrFull: 0
 --- !u!1 &487368378
 GameObject:
   m_ObjectHideFlags: 0
@@ -1660,7 +1662,7 @@ GameObject:
   - component: {fileID: 532533039}
   - component: {fileID: 532533038}
   - component: {fileID: 532533037}
-  - component: {fileID: 532533036}
+  - component: {fileID: 532533040}
   m_Layer: 0
   m_Name: Station_Water
   m_TagString: Untagged
@@ -1668,21 +1670,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &532533036
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 532533035}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 44ab26a53e35887429acec2fd93359aa, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  MaxNumberOfCats: 1
-  CatCount: 0
-  StationNeed: 
 --- !u!61 &532533037
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -1774,6 +1761,22 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 12
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &532533040
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 532533035}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 48a5545ea16254f4aa3d2fd99bd79245, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  MaxNumberOfCats: 5
+  StationNeed: 
+  CurrentCats: []
+  ArrFull: 0
 --- !u!1 &557380719
 GameObject:
   m_ObjectHideFlags: 0
@@ -1785,7 +1788,7 @@ GameObject:
   - component: {fileID: 557380723}
   - component: {fileID: 557380722}
   - component: {fileID: 557380721}
-  - component: {fileID: 557380720}
+  - component: {fileID: 557380724}
   m_Layer: 0
   m_Name: Station_Fire
   m_TagString: Untagged
@@ -1793,21 +1796,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &557380720
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 557380719}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 44ab26a53e35887429acec2fd93359aa, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  MaxNumberOfCats: 1
-  CatCount: 0
-  StationNeed: 
 --- !u!61 &557380721
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -1899,6 +1887,22 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 13
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &557380724
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 557380719}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 48a5545ea16254f4aa3d2fd99bd79245, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  MaxNumberOfCats: 5
+  StationNeed: 
+  CurrentCats: []
+  ArrFull: 0
 --- !u!1 &582563494
 GameObject:
   m_ObjectHideFlags: 0
@@ -2766,12 +2770,12 @@ MonoBehaviour:
   NeedWarmth: {fileID: 0}
   NeedFood: {fileID: 0}
   NeedPlay: {fileID: 0}
+  Exclimation: {fileID: 0}
   holder: {fileID: 2386166062835950239, guid: 30d45af717e837d45b3fd079e7cdc326, type: 3}
   UIHolder: {fileID: 0}
   AtStation: 0
   StationCountDownTimerMax: 15
   StationTimeLeft: 0
-  WasAtStation: 0
 --- !u!135 &1107035341
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -3216,12 +3220,12 @@ MonoBehaviour:
   NeedWarmth: {fileID: 0}
   NeedFood: {fileID: 0}
   NeedPlay: {fileID: 0}
+  Exclimation: {fileID: 0}
   holder: {fileID: 0}
   UIHolder: {fileID: 0}
   AtStation: 0
   StationCountDownTimerMax: 15
   StationTimeLeft: 0
-  WasAtStation: 0
 --- !u!135 &1348786427
 SphereCollider:
   m_ObjectHideFlags: 0
