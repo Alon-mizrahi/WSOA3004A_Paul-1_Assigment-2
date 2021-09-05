@@ -69,6 +69,9 @@ public class NewStationScript : MonoBehaviour
             other.gameObject.GetComponent<CatObject>().CanWander = false;
             other.gameObject.GetComponent<CatClickAndDrag>().CanDrag = false;
             other.gameObject.GetComponent<CatObject>().TurnOffSpeechBubble();
+
+            other.gameObject.GetComponent<CatObject>().isPickUp = false;
+            other.gameObject.GetComponent<CatObject>().isMoving = false;
         }
     }
 

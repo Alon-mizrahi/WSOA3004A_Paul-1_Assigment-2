@@ -18,8 +18,10 @@ public class CatWander : MonoBehaviour
     CatObject CatScript;
 
     public bool NeedFailed = false;
+    bool Clicked = false;
 
     Transform ExitPos;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -38,15 +40,21 @@ public class CatWander : MonoBehaviour
         if (CatScript.CanWander == true) { 
             if (Target == gameObject.transform.position && Set == false)
             {
+                CatScript.isMoving = false;
                 Debug.Log("Setting new target");
                 StartCoroutine("SetTarget");
             }
             else if(CanMove==true)
             {
+                if (Clicked == false){ CatScript.isMoving = true; }
                 MoveTowards();
             }
             else if (NeedFailed == true)
             {
+                if (Clicked == false)
+                {
+                    CatScript.isMoving = true;
+                }
                 //Debug.Log("MOVING TOWARDS EXIT");
                 MoveExit();
             }
@@ -97,15 +105,23 @@ public class CatWander : MonoBehaviour
     {
         if (NeedFailed == false)
         {
+            //CatScript.isMoving = true;
             gameObject.transform.position = Vector3.MoveTowards(gameObject.transform.position, Target, Time.deltaTime * speed);
             if (gameObject.transform.position == Target) { Set = false; CanMove = false; }
         }
-        else { CanMove = false; }
+        else
+        {
+            CanMove = false;
+            //CatScript.isMoving = true;
+        }
     }
 
 
     private void OnMousedown()
     {
+        Clicked = true;
+        CatScript.isMoving = false;
+
         if (NeedFailed == false)
         {
             Set = false;
@@ -116,6 +132,7 @@ public class CatWander : MonoBehaviour
 
     private void OnMouseUp()
     {
+        Clicked = false;
         if (NeedFailed == false)
         {
             Target = gameObject.transform.position;

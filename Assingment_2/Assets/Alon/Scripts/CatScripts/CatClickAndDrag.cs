@@ -7,14 +7,21 @@ public class CatClickAndDrag : MonoBehaviour
 
     public float smoothSpeed = 0.125f;
     public bool CanDrag = true;
-    //public LayerMask DraggableMask;
 
+    CatObject CatScript;
 
+    private void Start()
+    {
+        CatScript = gameObject.GetComponent<CatObject>();
+    }
 
     private void OnMouseDrag()
     {
         if (CanDrag == true)
         {
+            CatScript.isPickUp = true;
+            CatScript.isMoving = false;
+
             Vector2 mouseposition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
 
             Vector2 desiredPosition = mouseposition;
@@ -23,6 +30,10 @@ public class CatClickAndDrag : MonoBehaviour
         }
     }
 
+    private void OnMouseUp()
+    {
+        CatScript.isPickUp = false;
+    }
 
     /*
     private void Update()

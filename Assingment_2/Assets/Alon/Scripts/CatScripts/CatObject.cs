@@ -35,7 +35,7 @@ public class CatObject : MonoBehaviour
     //cat leaving things
     CatWander WanderScript;
     public Transform Exit;
-    bool Failed = false;
+    public bool Failed = false;
 
     //UI to display name and speech bubble for needs
     public Canvas Canvas;
@@ -59,6 +59,12 @@ public class CatObject : MonoBehaviour
     public float StationCountDownTimerMax = 15f;//how long a cats need can go unsatisfied
     public float StationTimeLeft;
     //public bool WasAtStation = false;
+
+
+    //Rob Bools for animations
+    public bool isMoving = false;
+    public bool isPickUp = false;
+
 
     // Start is called before the first frame update
     void Start()
