@@ -78,6 +78,7 @@ public class catGen : MonoBehaviour
         hasSocks();
         multiEar();
         isCatFancy();
+        genAnimStateMachine();
     }
     private void resetCat()
     {
@@ -448,6 +449,7 @@ public class catGen : MonoBehaviour
 
             if ((catBodyRoll >= 90) && (catBodyRoll <= 100))
             {
+                isFat = true;
                 //fat cat meow
 
                 //head 0, face 1, eye1 2, eye2 3, ears 4, upperT 5, lowerT 6, tail 7, legs : UL 8, UR 9, LL 10, LR 11
@@ -525,6 +527,11 @@ public class catGen : MonoBehaviour
             int catSockColor = Random.Range(0, 6);
             catPart[4].GetComponent<SpriteRenderer>().color = catPartColor[catSockColor];
         }
+    }
+
+    void genAnimStateMachine()
+    {
+
     }
 
 }

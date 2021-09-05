@@ -6,7 +6,7 @@ public class camScroll : MonoBehaviour
 {
     public GameObject camDolly;
     public float thres , clampX , clampY;
-    public int camMoveSpeed;
+    public float camMoveSpeed;
     private float screenThres;
     // Start is called before the first frame update
     void Start()

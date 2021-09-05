@@ -3983,6 +3983,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   camDolly: {fileID: 1128479374}
   thres: 13
+  clampX: 400
+  clampY: 400
   camMoveSpeed: 2
 --- !u!1001 &318555788
 PrefabInstance:
