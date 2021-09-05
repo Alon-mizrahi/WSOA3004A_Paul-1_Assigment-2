@@ -10,7 +10,7 @@ public class CatObject : MonoBehaviour
     public string Name;
     
     public string[] NeedList = {"Warmth", "Food", "Water", "Play" };  //list of needs of cats
-    public string[] NameList = { "Juliette", "Alon", "Rob", "Milo", "Simba", "George", "Sam", "Boots", "Ziggy", "Vuk", "Pam" }; //list of names to choose
+    public string[] NameList;// = { "Juliette", "Alon", "Rob", "Milo", "Simba", "George", "Sam", "Boots", "Ziggy", "Vuk", "Pam", "Dillon", "Dude", "Herman", "Turtle", "Sir Pounce", "Paul", "Miss Kitty", "Biggie", "Mr. Bojangles", "Fefe", "Gremlin", "Cindy", "Scampuss" }; //list of names to choose
     //do a sprite array to randomly choose sprite
     public string CurrentNeed;                                                         
 
