@@ -41,7 +41,7 @@ public class CatObject : MonoBehaviour
     public Canvas Canvas;
     public Text Nametxt;
 
-    SpriteRenderer SpeechBubble;
+    public SpriteRenderer SpeechBubble;
     public SpriteRenderer NeedWater;
     public SpriteRenderer NeedWarmth;
     public SpriteRenderer NeedFood;

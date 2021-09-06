@@ -74,6 +74,7 @@ public class CatWander : MonoBehaviour
             {
                 if (gameObject.transform.rotation.x != 180 || gameObject.transform.rotation.x != -180)
                 {
+                    CatScript.SpeechBubble.transform.localPosition = new Vector3(-2.12f, 1.26f, 1f);
                     CatScript.NeedFood.transform.localPosition = new Vector3(0, 0, 0.01f);
                     CatScript.NeedPlay.transform.localPosition = new Vector3(0, 0, 0.01f);
                     CatScript.NeedWarmth.transform.localPosition = new Vector3(0, 0, 0.01f);
@@ -87,6 +88,7 @@ public class CatWander : MonoBehaviour
             {
                 if (gameObject.transform.rotation.x != 0 || gameObject.transform.rotation.x != 360)
                 {
+                    CatScript.SpeechBubble.transform.localPosition = new Vector3(-2.12f, 1.26f, -1f);
                     CatScript.NeedFood.transform.localPosition = new Vector3(0, 0, -0.01f);
                     CatScript.NeedPlay.transform.localPosition = new Vector3(0, 0, -0.01f);
                     CatScript.NeedWarmth.transform.localPosition = new Vector3(0, 0, -0.01f);

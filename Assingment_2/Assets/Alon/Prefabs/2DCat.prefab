@@ -69,7 +69,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 820245533475425168}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -2.12, y: 1.26, z: 0}
+  m_LocalPosition: {x: -2.12, y: 1.26, z: 1}
   m_LocalScale: {x: 0.67, y: 0.67, z: 0.67}
   m_Children:
   - {fileID: 820245535214765053}
@@ -577,6 +577,7 @@ MonoBehaviour:
   Failed: 0
   Canvas: {fileID: 0}
   Nametxt: {fileID: 0}
+  SpeechBubble: {fileID: 0}
   NeedWater: {fileID: 0}
   NeedWarmth: {fileID: 0}
   NeedFood: {fileID: 0}

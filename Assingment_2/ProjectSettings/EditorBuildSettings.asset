@@ -4,5 +4,8 @@
 EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
-  m_Scenes: []
+  m_Scenes:
+  - enabled: 1
+    path: Assets/Alon/A_scene.unity
+    guid: fa4e3cf4788c4f041ad6d2622477a215
   m_configObjects: {}
