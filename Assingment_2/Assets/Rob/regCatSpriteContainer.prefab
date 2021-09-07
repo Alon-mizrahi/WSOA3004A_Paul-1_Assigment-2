@@ -1434,6 +1434,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   catAnim: {fileID: 0}
+  catGen: {fileID: 0}
+  catObjScr: {fileID: 0}
   isMoving: 0
   isMovePrev: 0
   isPickUp: 0
