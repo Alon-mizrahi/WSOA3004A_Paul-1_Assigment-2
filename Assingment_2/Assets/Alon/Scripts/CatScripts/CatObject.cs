@@ -60,6 +60,22 @@ public class CatObject : MonoBehaviour
     public float StationTimeLeft;
     //public bool WasAtStation = false;
 
+    //
+    public int heartMax,heartCount;
+    public float totalGraduationTime , fakeNeedTime;
+    public bool gradTimeDebounce,fakeTimeDebounce, hadNeed ,gradReady;
+    public SpriteRenderer hearts;
+
+    public Sprite[] heartSpriteUI;
+
+
+
+
+
+
+
+
+
 
     //Rob Bools for animations
     public bool isMoving = false;
@@ -69,6 +85,10 @@ public class CatObject : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        
+        hearts.enabled = false;
+        heartMax = 5;
+        heartCount = 1;
         NeedTimeLeft = NeedCountDownTimerMax;
 
         WanderScript = gameObject.GetComponent<CatWander>();
@@ -77,12 +97,14 @@ public class CatObject : MonoBehaviour
         UIFollow = gameObject.GetComponentInChildren<CatUIFollow>();
         Name = GetName();
         SetUI();
-        
+        Nametxt.enabled = false;
+
     }
 
     // Update is called once per frame
     void Update()
     {
+        
         if (AtStation == false)
         { 
             if (hasNeed == false)
@@ -95,9 +117,11 @@ public class CatObject : MonoBehaviour
             }
         }else if (AtStation == true)
         {
+            
             BeingSatisfied();
         }
-        
+        timeNeedAgain(); // taking time became buggy so I needed to make my own method sorry
+        updateHeartUI();
     }
 
     //function that creates a need to occur in a time interval
@@ -179,28 +203,9 @@ public class CatObject : MonoBehaviour
         if (NeedTimeLeft > 0)
         {
             NeedTimeLeft -= Time.deltaTime;
-            NeedTimer.fillAmount = NeedTimeLeft / NeedCountDownTimerMax;
+            NeedTimer.fillAmount = NeedTimeLeft / NeedCountDownTimerMax; //timer fill here
         }
-        else //Need not met
-        {
-            //Wander target == to door,
-            if (Failed == false)
-            {
-                CurrentNeed = "";
-                Failed = true;
-
-                NeedPlay.enabled = false;
-                NeedFood.enabled = false;
-                NeedWarmth.enabled = false;
-                NeedWater.enabled = false;
-
-                SpeechBubble.enabled = true;
-                Exclimation.enabled = true;
-
-                WanderScript.NeedFail(Exit);
-            }
-            
-        }
+       
     }
 
     string GetName()
@@ -283,6 +288,9 @@ public class CatObject : MonoBehaviour
         }
         else //Done at station
         {
+            heartCount++;
+            getIdleReview();
+
             //WasAtStation = true;
             CurrentNeed = "";
             CanWander = true;
@@ -295,6 +303,118 @@ public class CatObject : MonoBehaviour
         }
 
     }
+
+    public void timeNeedAgain()
+    {
+        if (hasNeed) // cat has need start recording time
+        {
+            if (fakeTimeDebounce)
+            {
+                fakeNeedTime = NeedCountDownTimerMax;
+                fakeTimeDebounce = false;
+            }
+
+            fakeNeedTime -= Time.deltaTime;
+        }
+        if (hasNeed && AtStation) //cat is at station
+        {
+            //take time
+            if (gradTimeDebounce)
+            {
+                totalGraduationTime += fakeNeedTime;
+                gradTimeDebounce = false;
+            }
+
+        }
+
+        if (hasNeed && !AtStation)
+        {
+            if(fakeNeedTime <= 0)
+            {
+                heartCount--;
+
+                if(heartCount != 0)
+                {
+                    NeedPlay.enabled = false;
+                    NeedFood.enabled = false;
+                    NeedWarmth.enabled = false;
+                    NeedWater.enabled = false;
+
+                    SpeechBubble.enabled = false;
+
+                    CurrentNeed = "";
+                    CanWander = true;
+                    hasNeed = false;
+                    AtStation = false;
+                    gameObject.GetComponent<CatClickAndDrag>().CanDrag = true;
+                    ResetTimer();
+                }
+
+
+                if (heartCount == 0)
+                {
+                    //failure here
+                    //Wander target == to door,
+                    if (Failed == false)
+                    {
+
+                        CurrentNeed = "";
+                        Failed = true;
+
+                        NeedPlay.enabled = false;
+                        NeedFood.enabled = false;
+                        NeedWarmth.enabled = false;
+                        NeedWater.enabled = false;
+
+                        SpeechBubble.enabled = true;
+                        Exclimation.enabled = true;
+
+                        WanderScript.NeedFail(Exit);
+                    }
+                }
+
+                if(heartCount == 5)
+                {
+                    gradReady = true;
+                    //do grad stuff here
+                    // rank player based on time , use gradTime
+                }
+
+                heartCount = Mathf.Clamp(heartCount, 0, heartMax);
+            }
+        }
+        
+        if(!hasNeed) //debounce stuff
+        {
+            fakeTimeDebounce = true;
+            gradTimeDebounce = true;
+            
+        }
+    }
+
+    public void updateHeartUI()
+    {
+        hearts.sprite = heartSpriteUI[Mathf.Clamp(heartCount - 1, 0, heartMax)];
+    }
+
+    public void getIdleReview()
+    {
+
+    }
+
+    void OnMouseOver()
+    {
+        Nametxt.enabled = true;
+        hearts.enabled = true;
+    }
+
+     void OnMouseExit()
+    {
+        Nametxt.enabled = false;
+        hearts.enabled = false;
+    }
+
+
 
     public void ResetTimer()
     {

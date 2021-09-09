@@ -560,17 +560,33 @@ MonoBehaviour:
   CurrentNeed: 
   Max_NeedTime: 15
   Min_NeedTime: 10
+  NeedCountDownTimerMax: 15
+  NeedTimeLeft: 0
   hasNeed: 0
+  NeedSet: 0
   isBusy: 0
+  CanWander: 1
+  Exit: {fileID: 0}
+  Failed: 0
   Canvas: {fileID: 0}
-  SpeechBubble: {fileID: 1403929281018181857, guid: 698c16414f7bcfe42a36d548c7babf72, type: 3}
   Nametxt: {fileID: 8790273963656873652, guid: 06e015b36e20ec940bee767c8e5307a2, type: 3}
+  SpeechBubble: {fileID: 1403929281018181857, guid: 698c16414f7bcfe42a36d548c7babf72, type: 3}
   NeedWater: {fileID: 0}
   NeedWarmth: {fileID: 0}
   NeedFood: {fileID: 0}
   NeedPlay: {fileID: 0}
+  Exclimation: {fileID: 0}
   holder: {fileID: 2386166062835950239, guid: 30d45af717e837d45b3fd079e7cdc326, type: 3}
   UIHolder: {fileID: 0}
+  AtStation: 0
+  StationCountDownTimerMax: 15
+  StationTimeLeft: 0
+  heartMax: 5
+  heartCount: 0
+  totalGraduationTime: 0
+  gradTimeDebounce: 0
+  isMoving: 0
+  isPickUp: 0
 --- !u!114 &7524053055916390241
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -584,6 +600,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   smoothSpeed: 0.1
+  CanDrag: 1
 --- !u!114 &7524053055916390242
 MonoBehaviour:
   m_ObjectHideFlags: 0
