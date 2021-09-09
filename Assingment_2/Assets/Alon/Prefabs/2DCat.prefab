@@ -596,6 +596,7 @@ MonoBehaviour:
   gradTimeDebounce: 0
   fakeTimeDebounce: 0
   hadNeed: 0
+  gradReady: 0
   hearts: {fileID: 2080672450926207238}
   heartSpriteUI:
   - {fileID: 21300000, guid: e3735157a866cfd44b335a72a5e5e588, type: 3}
@@ -832,6 +833,7 @@ GameObject:
   - component: {fileID: 820245534261865590}
   - component: {fileID: 820245534261865588}
   - component: {fileID: 820245534261865591}
+  - component: {fileID: 2460295960146727163}
   m_Layer: 5
   m_Name: Name_
   m_TagString: Untagged
@@ -900,6 +902,21 @@ MonoBehaviour:
     m_VerticalOverflow: 0
     m_LineSpacing: 1
   m_Text: cat Name
+--- !u!114 &2460295960146727163
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 820245534261865585}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e19747de3f5aca642ab2be37e372fb86, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_EffectColor: {r: 0, g: 0, b: 0, a: 0.5}
+  m_EffectDistance: {x: 1, y: -1}
+  m_UseGraphicAlpha: 1
 --- !u!1 &820245534470218979
 GameObject:
   m_ObjectHideFlags: 0

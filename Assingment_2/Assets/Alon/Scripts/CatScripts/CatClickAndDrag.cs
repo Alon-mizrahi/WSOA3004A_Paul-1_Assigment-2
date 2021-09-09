@@ -22,6 +22,9 @@ public class CatClickAndDrag : MonoBehaviour
             CatScript.isPickUp = true;
             CatScript.isMoving = false;
 
+            CatScript.Nametxt.enabled = true;
+            CatScript.hearts.enabled = true;
+
             Vector2 mouseposition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
 
             Vector2 desiredPosition = mouseposition;
@@ -33,6 +36,8 @@ public class CatClickAndDrag : MonoBehaviour
     private void OnMouseUp()
     {
         CatScript.isPickUp = false;
+        CatScript.Nametxt.enabled = false;
+        CatScript.hearts.enabled = false;
     }
 
     /*
