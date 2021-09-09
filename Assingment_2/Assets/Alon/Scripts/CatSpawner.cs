@@ -14,7 +14,7 @@ public class CatSpawner : MonoBehaviour
 
     public int BatchNumber = 1;
     public bool StartOfBatch = true;
-    public int NumberOfCatsToSpawn;
+    public float NumberOfCatsToSpawn;
 
     // Start is called before the first frame update
     void Start()
@@ -37,6 +37,9 @@ public class CatSpawner : MonoBehaviour
     void BatchSpawner()
     {
         NumberOfCatsToSpawn = 3 * BatchNumber; //3, 6, 9, 12 ... fine for now, can do a different intervals if time
+
+        //SinusoidalSpawner();
+
         for (int i = 0; i < NumberOfCatsToSpawn; i++)
         {
             Instantiate(Cat, gameObject.transform.position, Quaternion.identity);
@@ -48,6 +51,25 @@ public class CatSpawner : MonoBehaviour
     {
         Instantiate(Cat, gameObject.transform.position, Quaternion.identity);
     }
+
+
+
+    void SinusoidalSpawner()
+    {
+        float angle = BatchNumber * Mathf.Sin(BatchNumber);
+        angle = Mathf.Abs(angle);
+
+        NumberOfCatsToSpawn = Mathf.Round(angle);
+
+        Debug.Log("SIN Val: "+ angle);
+        Debug.Log("Spawning: " + NumberOfCatsToSpawn);
+    }
+
+
+
+
+
+
 
 
 

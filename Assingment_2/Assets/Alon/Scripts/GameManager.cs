@@ -10,6 +10,10 @@ public class GameManager : MonoBehaviour
     public Image AfterBatch;
 
 
+    //testing
+    public Text speedTxt;
+
+
     // Start is called before the first frame update
     void Start()
     {
@@ -36,10 +40,30 @@ public class GameManager : MonoBehaviour
 
     public void NexDay()//on Button Press
     {
+        Spawner.StartOfBatch = true;
+        AfterBatch.gameObject.SetActive(false);
 
     }
 
 
+    public void TestingSpeed()
+    {
+        if (Time.timeScale == 1)
+        {
+            Time.timeScale = 2;
+            speedTxt.text = "Speed: 2X";
+        }
+        else if (Time.timeScale == 2)
+        {
+            Time.timeScale = 3;
+            speedTxt.text = "Speed: 3X";
+        }
+        else if (Time.timeScale == 3)
+        {
+            Time.timeScale = 1;
+            speedTxt.text = "Speed: 1X";
+        }
+    }
 
 
 

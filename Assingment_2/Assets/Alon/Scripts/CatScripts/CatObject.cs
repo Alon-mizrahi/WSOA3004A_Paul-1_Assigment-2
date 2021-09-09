@@ -408,7 +408,7 @@ public class CatObject : MonoBehaviour
         hearts.enabled = true;
     }
 
-     void OnMouseExit()
+    void OnMouseExit()
     {
         Nametxt.enabled = false;
         hearts.enabled = false;
@@ -430,4 +430,5 @@ public class CatObject : MonoBehaviour
         NeedFood.enabled = false;
         NeedPlay.enabled = false;
     }
+
 }
