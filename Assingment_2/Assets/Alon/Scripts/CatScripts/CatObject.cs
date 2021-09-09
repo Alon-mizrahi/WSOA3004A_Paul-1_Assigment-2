@@ -69,8 +69,8 @@ public class CatObject : MonoBehaviour
     public Sprite[] heartSpriteUI;
 
 
-
-
+    //petting
+    public bool CanPet = true;//when to turn off?
 
 
 

@@ -7,9 +7,12 @@ public class ExitScript : MonoBehaviour
     CatSpawner Spawner;
     int NumberOfGraduates;
 
+    ExitDataCollection DataCollector;
+
     private void Start()
     {
         Spawner = GameObject.Find("CatSpawner").GetComponent<CatSpawner>();
+        DataCollector = gameObject.GetComponentInChildren<ExitDataCollection>();
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -20,14 +23,23 @@ public class ExitScript : MonoBehaviour
             if (collision.gameObject.GetComponent<CatWander>().NeedFailed == true)
             {
                 //might change destroy to just store somewhere else
-                Destroy(collision.gameObject.GetComponent<CatObject>().UIHolder);
-                Destroy(collision.gameObject);
+
+                DataCollector.MoveCats(collision.gameObject);//pass cat to data collector
+
+                //Destroy(collision.gameObject.GetComponent<CatObject>().UIHolder);
+                //Destroy(collision.gameObject);
 
                 Spawner.ReplaceCat();
+
 
             }
             else if (collision.gameObject.GetComponent<CatObject>().gradReady == true)
             {
+                DataCollector.MoveCats(collision.gameObject);//pass cat to data collector
+
+                //Destroy(collision.gameObject.GetComponent<CatObject>().UIHolder);
+                //Destroy(collision.gameObject);
+
                 NumberOfGraduates++;
                 if (NumberOfGraduates >= Spawner.NumberOfCatsToSpawn) { EndOfBatch(); }
             }
