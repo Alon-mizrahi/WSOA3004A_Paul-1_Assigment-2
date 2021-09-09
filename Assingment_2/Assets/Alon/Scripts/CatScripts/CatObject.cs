@@ -289,7 +289,7 @@ public class CatObject : MonoBehaviour
         else //Done at station
         {
             heartCount++;
-            getIdleReview();
+            getIdleReviewGood();
 
             //WasAtStation = true;
             CurrentNeed = "";
@@ -332,6 +332,7 @@ public class CatObject : MonoBehaviour
             if(fakeNeedTime <= 0)
             {
                 heartCount--;
+                getIdleReviewBad();
 
                 if(heartCount != 0)
                 {
@@ -373,18 +374,22 @@ public class CatObject : MonoBehaviour
                     }
                 }
 
-                if(heartCount == 5)
-                {
-                    gradReady = true;
-                    //do grad stuff here
-                    // rank player based on time , use gradTime
-                }
+              
 
                 heartCount = Mathf.Clamp(heartCount, 0, heartMax);
             }
+
+           
         }
-        
-        if(!hasNeed) //debounce stuff
+
+        if (heartCount == 5)
+        {
+            gradReady = true;
+            //do grad stuff here
+            // rank player based on time , use gradTime
+        }
+
+        if (!hasNeed) //debounce stuff
         {
             fakeTimeDebounce = true;
             gradTimeDebounce = true;
@@ -395,9 +400,31 @@ public class CatObject : MonoBehaviour
     public void updateHeartUI()
     {
         hearts.sprite = heartSpriteUI[Mathf.Clamp(heartCount - 1, 0, heartMax)];
+     
+
+        if(this.gameObject.transform.eulerAngles.y == 180)
+        {
+            hearts.gameObject.transform.localPosition = new Vector3(hearts.gameObject.transform.localPosition.x, hearts.gameObject.transform.localPosition.y, 10);
+            hearts.flipX = true;
+        }
+        else
+        {
+            hearts.gameObject.transform.localPosition = new Vector3(hearts.gameObject.transform.localPosition.x, hearts.gameObject.transform.localPosition.y, -10);
+            hearts.flipX = false;
+        }
     }
 
-    public void getIdleReview()
+    public void getIdleReviewGood()
+    {
+
+    }
+
+    public void getIdleReviewBad()
+    {
+
+    }
+
+    public void getEndReview()
     {
 
     }
