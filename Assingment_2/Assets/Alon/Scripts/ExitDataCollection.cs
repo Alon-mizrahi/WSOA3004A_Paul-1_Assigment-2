@@ -53,11 +53,20 @@ public class ExitDataCollection : MonoBehaviour
         CatList = GetComponentsInChildren<CatObject>();
 
 
-
-        for (index = 0; index < TotalCats; index++)
+        foreach (Transform Cat in gameObject.transform)
         {
-            //get children
+            Debug.Log("DATA: " + Cat.gameObject.name + " | " + Cat.GetComponent<CatObject>().gradReady + " | " + Cat.GetComponent<CatObject>().heartCount + " | " + Cat.GetComponent<CatObject>().totalGraduationTime);
+            //call function to give data to
         }
+
+
+
+
+        //for (index = 0; index <= TotalCats; index++)
+        //{
+
+        //get children
+        //}
 
 
 
@@ -69,14 +78,7 @@ public class ExitDataCollection : MonoBehaviour
     public void ClearRoundData()//clear arrays
     {
         index = 0;
-        //for (int i = 0; i < Names.Length; i++)
-        //{
-        //    Names[i] = null;
-        //    DidGrad[i] = false;
-        //    GradTime[i] = 0;
-        //    HeartCount[i] = 0;
-
-        //}
+        foreach (Transform child in gameObject.transform) { GameObject.Destroy(child.gameObject); }
     }
 
 

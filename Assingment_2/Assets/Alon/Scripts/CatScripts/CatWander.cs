@@ -37,16 +37,16 @@ public class CatWander : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (CatScript.CanWander == true) { 
+        if (CatScript.CanWander == true) {
             if (Target == gameObject.transform.position && Set == false)
             {
                 CatScript.isMoving = false;
                 Debug.Log("Setting new target");
                 StartCoroutine("SetTarget");
             }
-            else if(CanMove==true)
+            else if (CanMove == true)
             {
-                if (Clicked == false){ CatScript.isMoving = true; }
+                if (Clicked == false) { CatScript.isMoving = true; }
                 MoveTowards();
             }
             else if (NeedFailed == true)
@@ -57,6 +57,10 @@ public class CatWander : MonoBehaviour
                 }
                 //Debug.Log("MOVING TOWARDS EXIT");
                 MoveExit();
+            }
+            else if (CatScript.gradReady==true)
+            {
+                GraduateMoveToExit();
             }
         }
     }
@@ -161,6 +165,30 @@ public class CatWander : MonoBehaviour
     {
         Set = true;
         NeedFailed = true;
+        CanMove = false;
+        gameObject.transform.eulerAngles = new Vector3(0, 180, 0);
+        Target = ExitPos.position;
+        gameObject.transform.position = Vector3.MoveTowards(gameObject.transform.position, Target, Time.deltaTime * speed);
+    }
+
+    public void GradMove(Transform Exit)
+    {
+        Set = true;
+        NeedFailed = false;
+        CanMove = false;
+        
+        speed = speed * 1.6f;
+        Target = Exit.position;
+        ExitPos = Exit;
+
+        gameObject.transform.eulerAngles = new Vector3(0, 180, 0);
+    }
+
+
+    void GraduateMoveToExit()
+    {
+        Set = true;
+        NeedFailed = false;
         CanMove = false;
         gameObject.transform.eulerAngles = new Vector3(0, 180, 0);
         Target = ExitPos.position;

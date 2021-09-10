@@ -105,7 +105,7 @@ public class CatObject : MonoBehaviour
     void Update()
     {
         
-        if (AtStation == false)
+        if (AtStation == false && gradReady == false)
         { 
             if (hasNeed == false)
             {
@@ -384,7 +384,13 @@ public class CatObject : MonoBehaviour
 
         if (heartCount == 5)
         {
-            gradReady = true;
+            
+            if (gradReady != true)
+            {
+                gradReady = true;
+                WanderScript.GradMove(Exit);
+            }
+            
             //do grad stuff here
             // rank player based on time , use gradTime
         }
