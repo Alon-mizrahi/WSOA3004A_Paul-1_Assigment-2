@@ -18,7 +18,7 @@ public class Petting : MonoBehaviour
         if (CatScript.CanPet == true && Input.GetMouseButton(1))//rightclick
         {
             Debug.Log("Petting " + gameObject.name);
-            HeartUI.GetComponent<SpriteRenderer>().enabled = true;
+            //HeartUI.GetComponent<SpriteRenderer>().enabled = true;
             //CatScript.CanWander = false;
 
             //play purr
@@ -26,7 +26,7 @@ public class Petting : MonoBehaviour
         }
         else
         {
-            HeartUI.GetComponent<SpriteRenderer>().enabled = true;
+           // HeartUI.GetComponent<SpriteRenderer>().enabled = true;
             //CatScript.CanWander = true;
         }
     }

@@ -5,7 +5,8 @@ using UnityEngine;
 public class ExitScript : MonoBehaviour
 {
     CatSpawner Spawner;
-    int NumberOfGraduates;
+    public int NumberOfGraduates =0;
+    public GameManager GM;
 
     ExitDataCollection DataCollector;
 
@@ -41,14 +42,15 @@ public class ExitScript : MonoBehaviour
                 //Destroy(collision.gameObject);
 
                 NumberOfGraduates++;
-                if (NumberOfGraduates >= Spawner.NumberOfCatsToSpawn) { EndOfBatch(); }
+                if (NumberOfGraduates == Spawner.NumberOfCatsToSpawn) { EndOfBatch(); }
             }
         }  
     }
 
     void EndOfBatch()
     {
-        NumberOfGraduates = 0;
+        //NumberOfGraduates = 0;
+        GM.EndOfBatch();
         //call function in game manager that pauses game between batches
     }
 }

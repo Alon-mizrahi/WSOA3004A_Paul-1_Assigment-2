@@ -31,12 +31,13 @@ public class ExitDataCollection : MonoBehaviour
 
     public void MoveCats(GameObject Cat)
     {
+        Cat.GetComponent<CatClickAndDrag>().enabled = false;
         Cat.transform.SetParent(gameObject.transform);
-
+        //Debug.Log("pause");
         Cat.transform.localPosition = new Vector3(0, 0, 0);
 
         Cat.GetComponent<CatWander>().enabled = false;
-        Cat.GetComponent<CatClickAndDrag>().enabled = false;
+        
         Cat.GetComponent<Petting>().enabled = false;
         Cat.GetComponent<CatObject>().enabled = false;//?? can we still access data?
 
@@ -44,7 +45,7 @@ public class ExitDataCollection : MonoBehaviour
 
 
 
-    public void GetCatData(GameObject Cat)
+    public void GetCatData()
     {
         TotalCats = transform.childCount;
         CatList = new CatObject[TotalCats];

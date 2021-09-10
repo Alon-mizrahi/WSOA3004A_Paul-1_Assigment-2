@@ -8,6 +8,7 @@ public class GameManager : MonoBehaviour
 
     CatSpawner Spawner;
     public Image AfterBatch;
+    public ExitDataCollection DataCollector;
 
 
     //testing
@@ -34,7 +35,7 @@ public class GameManager : MonoBehaviour
         //game paused
         // button to go to nexed batch
         AfterBatch.gameObject.SetActive(true);
-
+        DataCollector.GetCatData();
 
     }
 
@@ -42,7 +43,7 @@ public class GameManager : MonoBehaviour
     {
         Spawner.StartOfBatch = true;
         AfterBatch.gameObject.SetActive(false);
-
+        DataCollector.ClearRoundData();
     }
 
 
