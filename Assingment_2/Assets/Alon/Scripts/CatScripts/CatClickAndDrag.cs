@@ -17,7 +17,7 @@ public class CatClickAndDrag : MonoBehaviour
 
     private void OnMouseDrag()
     {
-        if (CanDrag == true)
+        if (CanDrag == true && gameObject.GetComponent<CatClickAndDrag>().enabled == true)
         {
             CatScript.isPickUp = true;
             CatScript.isMoving = false;
