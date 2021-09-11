@@ -560,7 +560,6 @@ MonoBehaviour:
   - Herman
   - Turtle
   - Sir Pounce
-  - Paul
   - Miss Kitty
   - Biggie
   - Mr. Bojangles
@@ -601,6 +600,8 @@ MonoBehaviour:
   StationTimeLeft: 0
   heartMax: 0
   heartCount: 0
+  heartsLost: 0
+  maxHeartsGained: 0
   totalGraduationTime: 0
   fakeNeedTime: 0
   gradTimeDebounce: 0
@@ -615,6 +616,7 @@ MonoBehaviour:
   - {fileID: 21300000, guid: 94ed5538f3afea5489616070572488a5, type: 3}
   - {fileID: 21300000, guid: a975045dd88a5bc48876f94f6373285b, type: 3}
   CanPet: 1
+  catStasis: 0
   isMoving: 0
   isPickUp: 0
   personality: 0
