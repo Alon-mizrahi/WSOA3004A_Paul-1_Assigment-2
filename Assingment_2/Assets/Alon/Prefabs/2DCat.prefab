@@ -469,6 +469,7 @@ GameObject:
   - component: {fileID: 820245534046142844}
   - component: {fileID: 820245534046142846}
   - component: {fileID: 4511832753626112900}
+  - component: {fileID: 1362033961463728672}
   m_Layer: 0
   m_Name: 2DCat
   m_TagString: Cat
@@ -567,6 +568,13 @@ MonoBehaviour:
   - Gremlin
   - Cindy
   - Scampuss
+  - Mushy
+  - Lizzy
+  - Pheobe
+  - Tiger
+  - Meowy
+  - Hoodeannii
+  - Mischief
   CurrentNeed: 
   Max_NeedTime: 20
   Min_NeedTime: 15
@@ -609,6 +617,7 @@ MonoBehaviour:
   CanPet: 1
   isMoving: 0
   isPickUp: 0
+  personality: 0
 --- !u!114 &820245534046142841
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -671,6 +680,18 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 808cfed94aeead940abda62a89016fa2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1362033961463728672
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 820245534046142843}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a50cf75558042d94d8482a22ba68bf79, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &820245534139420642

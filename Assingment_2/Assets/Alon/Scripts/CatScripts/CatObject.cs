@@ -10,7 +10,7 @@ public class CatObject : MonoBehaviour
     public string Name;
     
     public string[] NeedList = {"Warmth", "Food", "Water", "Play" };  //list of needs of cats
-    public string[] NameList;// = { "Juliette", "Alon", "Rob", "Milo", "Simba", "George", "Sam", "Boots", "Ziggy", "Vuk", "Pam", "Dillon", "Dude", "Herman", "Turtle", "Sir Pounce", "Paul", "Miss Kitty", "Biggie", "Mr. Bojangles", "Fefe", "Gremlin", "Cindy", "Scampuss" }; //list of names to choose
+    public string[] NameList;// = { "Juliette", "Alon", "Rob", "Milo", "Simba", "George", "Sam", "Boots", "Ziggy", "Vuk", "Pam", "Dillon", "Dude", "Herman", "Turtle", "Sir Pounce", "Miss Kitty", "Biggie", "Mr. Bojangles", "Fefe", "Gremlin", "Cindy", "Scampuss" ,"Mushy" , "Lizzy" , "Pheobe" , "Meowy" , "Sir Nya" , "Tiger" , "Charlie" , Hoodeanni , Mischief}; //list of names to choose
     //do a sprite array to randomly choose sprite
     public string CurrentNeed;                                                         
 
@@ -34,8 +34,15 @@ public class CatObject : MonoBehaviour
 
     //cat leaving things
     CatWander WanderScript;
+   
     public Transform Exit;
     public bool Failed = false;
+
+    //cat review dependency
+    catReviews catReviewScript;
+    idleReviewTextScript idleReviewScript;
+    GameManager GM;
+
 
     //UI to display name and speech bubble for needs
     public Canvas Canvas;
@@ -60,8 +67,8 @@ public class CatObject : MonoBehaviour
     public float StationTimeLeft;
     //public bool WasAtStation = false;
 
-    //
-    public int heartMax,heartCount;
+    //heart variable etc
+    public int heartMax,heartCount , heartsLost , maxHeartsGained;
     public float totalGraduationTime , fakeNeedTime;
     public bool gradTimeDebounce,fakeTimeDebounce, hadNeed ,gradReady;
     public SpriteRenderer hearts;
@@ -72,7 +79,8 @@ public class CatObject : MonoBehaviour
     //petting
     public bool CanPet = true;//when to turn off?
 
-
+    //stasis
+    public bool catStasis;
 
 
 
@@ -81,16 +89,21 @@ public class CatObject : MonoBehaviour
     public bool isMoving = false;
     public bool isPickUp = false;
 
+    //personality 
+    public int personality;
+
 
     // Start is called before the first frame update
     void Start()
     {
-        
+        personality = Random.Range(0, 5);
+
+
         hearts.enabled = false;
         heartMax = 5;
         heartCount = 1;
         NeedTimeLeft = NeedCountDownTimerMax;
-
+        catReviewScript = gameObject.GetComponent<catReviews>();
         WanderScript = gameObject.GetComponent<CatWander>();
         Exit = GameObject.Find("Exit").GetComponent<Transform>();
 
@@ -104,24 +117,29 @@ public class CatObject : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
-        if (AtStation == false && gradReady == false)
-        { 
-            if (hasNeed == false)
-            {
-                SetNeed();
-            }
-            else
-            {
-                NeedCountDown();
-            }
-        }else if (AtStation == true)
+        if(!catStasis)
         {
-            
-            BeingSatisfied();
+            if (AtStation == false && gradReady == false)
+            {
+                if (hasNeed == false)
+                {
+                    SetNeed();
+                }
+                else
+                {
+                    NeedCountDown();
+                }
+            }
+            else if (AtStation == true)
+            {
+
+                BeingSatisfied();
+            }
+            timeNeedAgain(); // taking time became buggy so I needed to make my own method sorry
+            updateHeartUI();
         }
-        timeNeedAgain(); // taking time became buggy so I needed to make my own method sorry
-        updateHeartUI();
+        
+      
     }
 
     //function that creates a need to occur in a time interval
@@ -218,6 +236,8 @@ public class CatObject : MonoBehaviour
         gameObject.name = Name;
 
         Canvas = GameObject.Find("Canvas").GetComponent<Canvas>();
+        idleReviewScript = GameObject.Find("idleReviewText").GetComponent<idleReviewTextScript>();
+        GM = GameObject.Find("GameManager").GetComponent<GameManager>();
 
         NeedTimer = GameObject.Find("TimerUI").GetComponent<Image>();
 
@@ -289,7 +309,12 @@ public class CatObject : MonoBehaviour
         else //Done at station
         {
             heartCount++;
-            getIdleReviewGood();
+
+            if(heartCount > maxHeartsGained)
+            {
+                maxHeartsGained = heartCount;
+            }
+            IdleReviewGood();
 
             //WasAtStation = true;
             CurrentNeed = "";
@@ -332,7 +357,8 @@ public class CatObject : MonoBehaviour
             if(fakeNeedTime <= 0)
             {
                 heartCount--;
-                getIdleReviewBad();
+                heartsLost++;
+                IdleReviewBad();
 
                 if(heartCount != 0)
                 {
@@ -418,27 +444,37 @@ public class CatObject : MonoBehaviour
             hearts.gameObject.transform.localPosition = new Vector3(hearts.gameObject.transform.localPosition.x, hearts.gameObject.transform.localPosition.y, -10);
             hearts.flipX = false;
         }
+
+       
     }
 
-    public void getIdleReviewGood()
+    public void IdleReviewGood()
     {
-
+        idleReviewScript.queueIdleReview("'" + catReviewScript.getIdleReviewText(heartCount, 0) + "'" + "\n --" + Name);
     }
 
-    public void getIdleReviewBad()
+    public void IdleReviewBad()
     {
-
+        idleReviewScript.queueIdleReview("'"+catReviewScript.getIdleReviewText(heartCount , 1)+"'"+"\n --"+Name);
     }
 
-    public void getEndReview()
+    public string getEndReview()
     {
-
+         string endReview = catReviewScript.getReviewText(GM.calculateStarValue(totalGraduationTime ,gradReady ,maxHeartsGained , heartsLost), personality );
+        return endReview;
     }
 
+
+
+   
+ 
     void OnMouseOver()
     {
         Nametxt.enabled = true;
         hearts.enabled = true;
+
+        if (heartCount == 0) hearts.enabled = false;
+
     }
 
     void OnMouseExit()

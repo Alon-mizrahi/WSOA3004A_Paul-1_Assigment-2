@@ -6,17 +6,15 @@ public class catReviews : MonoBehaviour
 {
     public void Start()
     {
-        review temp = new review();
-        temp.buildReview(0, 1);
-        string text = temp.reviewText[Random.Range(0 , temp.reviewText.Count)]; // use this when calling review
-        Debug.Log(text);
+       
         //test review 
     }
     public class review
     {
         public List<string> reviewText;
+        public List<string> idleReviewText;
 
-            public void buildReview(int starRating , int Personality)
+        public void buildReview(int starRating , int Personality)
             {
              switch (starRating)
             {
@@ -260,5 +258,161 @@ public class catReviews : MonoBehaviour
 
             }
             }
+
+        public void buildIdleReview(int heartRating , int Type)
+        {
+            /// heartRating is the heart value at which the idle review was called 
+            /// type 0 = need was met   , type 1 = need was not met
+            switch (heartRating)
+            {
+                case 0:
+                    idleReviewText = new List<string>()
+                            {
+                                "bad ",
+                                "un-uwu",
+                                "*angry cat noises*"
+                            };
+                    break;
+                case 1:
+                    switch (Type) 
+                    {
+                        case 0:
+                            idleReviewText = new List<string>()
+                            {
+                                "was good ",
+                                "uwu",
+                                "nyaaa , wuv u"
+                            };
+                            break;
+                        case 1:
+                            idleReviewText = new List<string>()
+                            {
+                                "bad ",
+                                "un-uwu",
+                                "*angry cat noises*"
+                            };
+                            break;
+                    }
+                    break;
+                case 2:
+                    switch (Type)
+                    {
+                        case 0:
+                            idleReviewText = new List<string>()
+                            {
+                                "was good ",
+                                "uwu",
+                                "nyaaa , wuv u"
+                            };
+                            break;
+                        case 1:
+                            idleReviewText = new List<string>()
+                            {
+                                "bad ",
+                                "un-uwu",
+                                "*angry cat noises*"
+                            };
+                            break;
+                    }
+                    break;
+
+                case 3:
+                    switch (Type)
+                    {
+                        case 0:
+                            idleReviewText = new List<string>()
+                            {
+                                "was good ",
+                                "uwu",
+                                "nyaaa , wuv u"
+                            };
+                            break;
+                        case 1:
+                            idleReviewText = new List<string>()
+                            {
+                                "bad ",
+                                "un-uwu",
+                                "*angry cat noises*"
+                            };
+                            break;
+                    }
+                    break;
+
+                case 4:
+                    switch (Type)
+                    {
+                        case 0:
+                            idleReviewText = new List<string>()
+                            {
+                                "was good ",
+                                "uwu",
+                                "nyaaa , wuv u"
+                            };
+                            break;
+                        case 1:
+                            idleReviewText = new List<string>()
+                            {
+                                "bad ",
+                                "un-uwu",
+                                "*angry cat noises*"
+                            };
+                            break;
+                    }
+                    break;
+                case 5:
+                    switch (Type)
+                    {
+                        case 0:
+                            idleReviewText = new List<string>()
+                            {
+                                "was good ",
+                                "uwu",
+                                "nyaaa , wuv u"
+                            };
+                            break;
+                        case 1:
+                            idleReviewText = new List<string>()
+                            {
+                                "bad ",
+                                "un-uwu",
+                                "*angry cat noises*"
+                            };
+                            break;
+                    }
+                    break;
+                default:
+                    idleReviewText = new List<string>()
+                            {
+                                "was good ",
+                                "uwu",
+                                "nyaaa , wuv u"
+                            };
+                    break;
+
+
+
+
+            }
+        }
      }
+
+    public string getReviewText(int starRating, int personality)
+    {
+        review temp = new review();
+        temp.buildReview(starRating, personality);
+        string text = temp.reviewText[Random.Range(0, temp.reviewText.Count)]; // use this when calling review
+        Debug.Log(text);
+        return text;
+    }
+
+    public string getIdleReviewText(int heart, int type)
+    {
+        review temp = new review();
+        temp.buildIdleReview(heart, type);
+        string text = temp.idleReviewText[Random.Range(0, temp.idleReviewText.Count)]; // use this when calling review
+        Debug.Log(text + " idle");
+        return text;
+    }
+
+
 }

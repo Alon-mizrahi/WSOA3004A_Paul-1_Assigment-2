@@ -12,6 +12,7 @@ public class ExitDataCollection : MonoBehaviour
     public int index = 0;
 
     public CatObject[] CatList;
+    public List<string> catEndReviews;
     public int TotalCats;
 
     /*
@@ -56,6 +57,7 @@ public class ExitDataCollection : MonoBehaviour
         foreach (Transform Cat in gameObject.transform)
         {
             Debug.Log("DATA: " + Cat.gameObject.name + " | " + Cat.GetComponent<CatObject>().gradReady + " | " + Cat.GetComponent<CatObject>().heartCount + " | " + Cat.GetComponent<CatObject>().totalGraduationTime);
+            catEndReviews.Add("'" + Cat.GetComponent<CatObject>().getEndReview() + "'" + "\n \n --" + Cat.GetComponent<CatObject>().Name);
             //call function to give data to
         }
 
