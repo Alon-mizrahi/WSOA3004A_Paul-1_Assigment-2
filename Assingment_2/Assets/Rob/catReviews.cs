@@ -99,9 +99,24 @@ public class catReviews : MonoBehaviour
                         default:
                             reviewText = new List<string>()
                             {
+                                "I love you human.",
+                                "You are the best friend I've ever had.",
+                                "You give the best headscratches."
+                            };
+                            break;
+                    }
+                    break;
+                
+                case 5:
+                    switch (Personality)
+                    {
+
+                        default:
+                            reviewText = new List<string>()
+                            {
                                 "You are the best human!",
                                 "I will miss you. And your food.",
-                                "You are the best friend I've ever had."
+                                "You looked after me perfectly."
                             };
                             break;
                     }
