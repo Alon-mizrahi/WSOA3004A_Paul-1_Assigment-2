@@ -22,9 +22,7 @@ public class catReviews : MonoBehaviour
                     
                     switch (Personality)
                     {
-                        case 1:
-                            reviewText = new List<string>()
-                            {
+                      
                                 /// basically this is a list 
                                 /// so you can have more than 1 response personality type per star rating
                                 /// personality types are just a broad way of catagorising who says what review so just come up with some
@@ -40,20 +38,7 @@ public class catReviews : MonoBehaviour
                                 //"Why did you not pay attention to me?",
                                 //"*Disgusted glare.*",
                                 //"I deserve more attention!"
-                            };
-                            break;
-                        case 2:
-                            reviewText = new List<string>()
-                            { 
-
-                            };
-                            break;
-                        case 3:
-                            reviewText = new List<string>()
-                            {
-
-                            };
-                            break;
+                      
                         
                         default:
                             reviewText = new List<string>()
@@ -68,24 +53,7 @@ public class catReviews : MonoBehaviour
                 case 1:
                     switch (Personality)
                     {
-                        case 1:
-                            reviewText = new List<string>()
-                            {
-
-                            };
-                            break;
-                        case 2:
-                            reviewText = new List<string>()
-                            {
-
-                            };
-                            break;
-                        case 3:
-                            reviewText = new List<string>()
-                            {
-
-                            };
-                            break;
+                      
                         default:
                             reviewText = new List<string>()
                             {
@@ -99,24 +67,7 @@ public class catReviews : MonoBehaviour
                 case 2:
                     switch (Personality)
                     {
-                        case 1:
-                            reviewText = new List<string>()
-                            {
-
-                            };
-                            break;
-                        case 2:
-                            reviewText = new List<string>()
-                            {
-
-                            };
-                            break;
-                        case 3:
-                            reviewText = new List<string>()
-                            {
-
-                            };
-                            break;
+                        
                         default:
                             reviewText = new List<string>()
                             {
@@ -130,24 +81,7 @@ public class catReviews : MonoBehaviour
                 case 3:
                     switch (Personality)
                     {
-                        case 1:
-                            reviewText = new List<string>()
-                            {
-
-                            };
-                            break;
-                        case 2:
-                            reviewText = new List<string>()
-                            {
-
-                            };
-                            break;
-                        case 3:
-                            reviewText = new List<string>()
-                            {
-
-                            };
-                            break;
+                      
                         default:
                             reviewText = new List<string>()
                             {
@@ -161,24 +95,7 @@ public class catReviews : MonoBehaviour
                 case 4:
                     switch (Personality)
                     {
-                        case 1:
-                            reviewText = new List<string>()
-                            {
-
-                            };
-                            break;
-                        case 2:
-                            reviewText = new List<string>()
-                            {
-
-                            };
-                            break;
-                        case 3:
-                            reviewText = new List<string>()
-                            {
-
-                            };
-                            break;
+                       
                         default:
                             reviewText = new List<string>()
                             {

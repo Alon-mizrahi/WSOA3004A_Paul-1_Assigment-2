@@ -15,9 +15,6 @@ public class idleReviewTextScript : MonoBehaviour
         gm = GameObject.Find("GameManager").GetComponent<GameManager>();
         startingReviewSpeed = ReviewSpeed;
         this.transform.position = new Vector3(offScreenLeft, this.transform.position.y, this.transform.position.z);
-        idleReviewTextQueue = new List<string>(){
-            "ez" , "coding hard" , "nya \n --some cat"
-        };
         gameObject.GetComponent<TextMeshProUGUI>().text = idleReviewTextQueue[0];
     }
 
@@ -58,7 +55,7 @@ public class idleReviewTextScript : MonoBehaviour
         }
         else
         {
-            gameObject.GetComponent<TextMeshProUGUI>().text = "'"+"uwu"+"'"+"\n --Meowy";
+            gameObject.GetComponent<TextMeshProUGUI>().text = "";
         }
         
     }
