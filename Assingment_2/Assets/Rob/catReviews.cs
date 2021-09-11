@@ -37,35 +37,30 @@ public class catReviews : MonoBehaviour
                                 /// oki 
                                 /// 
 
-
-
-                                "uwu",
-                                "cheese",
-                                "was shit service , literal excrament "
+                                //"Why did you not pay attention to me?",
+                                //"*Disgusted glare.*",
+                                //"I deserve more attention!"
                             };
                             break;
                         case 2:
                             reviewText = new List<string>()
                             { 
-                                "uwu",
-                                "cheese",
-                                "was shit service , literal excrament "
+
                             };
                             break;
                         case 3:
                             reviewText = new List<string>()
                             {
-                                "uwu",
-                                "cheese",
-                                "was shit service , literal excrament "
+
                             };
                             break;
+                        
                         default:
                             reviewText = new List<string>()
                             {  
-                                "uwu",
-                                "cheese",
-                                "was shit service , literal excrament "
+                                "You ignored me and I was sad.",
+                                "Why did you not pay attention to me?",
+                                "I deserve more attention."
                             };
                             break;
                     }
@@ -76,33 +71,27 @@ public class catReviews : MonoBehaviour
                         case 1:
                             reviewText = new List<string>()
                             {
-                                "uwu",
-                                "cheese",
-                                "was shit service , literal excrament "
+
                             };
                             break;
                         case 2:
                             reviewText = new List<string>()
                             {
-                                "uwu",
-                                "cheese",
-                                "was shit service , literal excrament "
+
                             };
                             break;
                         case 3:
                             reviewText = new List<string>()
                             {
-                                "uwu",
-                                "cheese",
-                                "was shit service , literal excrament "
+
                             };
                             break;
                         default:
                             reviewText = new List<string>()
                             {
-                                "uwu",
-                                "cheese",
-                                "was shit service , literal excrament "
+                                "I could grow to like it here. You seem alright.",
+                                "You did not give me enough cuddles.",
+                                "At least the fire was warm."
                             };
                             break;
                     }
@@ -113,33 +102,27 @@ public class catReviews : MonoBehaviour
                         case 1:
                             reviewText = new List<string>()
                             {
-                                "uwu",
-                                "cheese",
-                                "was shit service , literal excrament "
+
                             };
                             break;
                         case 2:
                             reviewText = new List<string>()
                             {
-                                "uwu",
-                                "cheese",
-                                "was shit service , literal excrament "
+
                             };
                             break;
                         case 3:
                             reviewText = new List<string>()
                             {
-                                "uwu",
-                                "cheese",
-                                "was shit service , literal excrament "
+
                             };
                             break;
                         default:
                             reviewText = new List<string>()
                             {
-                                "uwu",
-                                "cheese",
-                                "was shit service , literal excrament "
+                                "I’m comfortable for the first time in ages.",
+                                "You are growing on me human.",
+                                "I think we're going to get along."
                             };
                             break;
                     }
@@ -150,33 +133,27 @@ public class catReviews : MonoBehaviour
                         case 1:
                             reviewText = new List<string>()
                             {
-                                "uwu",
-                                "cheese",
-                                "was shit service , literal excrament "
+
                             };
                             break;
                         case 2:
                             reviewText = new List<string>()
                             {
-                                "uwu",
-                                "cheese",
-                                "was shit service , literal excrament "
+
                             };
                             break;
                         case 3:
                             reviewText = new List<string>()
                             {
-                                "uwu",
-                                "cheese",
-                                "was shit service , literal excrament "
+
                             };
                             break;
                         default:
                             reviewText = new List<string>()
                             {
-                                "uwu",
-                                "cheese",
-                                "was shit service , literal excrament "
+                                "I had a great time today, and it was because of you.",
+                                "Thank you human for feeding me.",
+                                "*Mews in happiness*"
                             };
                             break;
                     }
@@ -187,77 +164,33 @@ public class catReviews : MonoBehaviour
                         case 1:
                             reviewText = new List<string>()
                             {
-                                "uwu",
-                                "cheese",
-                                "was shit service , literal excrament "
-                            };
-                            break;
-                        case 2:
-                            reviewText = new List<string>()
-                            {
-                                "uwu",
-                                "cheese",
-                                "was shit service , literal excrament "
-                            };
-                            break;
-                        case 3:
-                            reviewText = new List<string>()
-                            {
-                                "uwu",
-                                "cheese",
-                                "was shit service , literal excrament "
-                            };
-                            break;
-                        default:
-                            reviewText = new List<string>()
-                            {
-                                "uwu",
-                                "cheese",
-                                "was shit service , literal excrament "
-                            };
-                            break;
-                    }
-                    break;
-                case 5:
-                    switch (Personality)
-                    {
-                        case 1:
-                            reviewText = new List<string>()
-                            {
-                                "uwu",
-                                "cheese",
-                                "was shit service , literal excrament "
-                            };
-                            break;
-                        case 2:
-                            reviewText = new List<string>()
-                            {
-                                "uwu",
-                                "cheese",
-                                "was shit service , literal excrament "
-                            };
-                            break;
-                        case 3:
-                            reviewText = new List<string>()
-                            {
-                                "uwu",
-                                "cheese",
-                                "was shit service , literal excrament "
-                            };
-                            break;
-                        default:
-                            reviewText = new List<string>()
-                            {
-                                "uwu",
-                                "cheese",
-                                "was shit service , literal excrament "
-                            };
-                            break;
-                    }
-                    break;
 
-            }
-            }
+                            };
+                            break;
+                        case 2:
+                            reviewText = new List<string>()
+                            {
+
+                            };
+                            break;
+                        case 3:
+                            reviewText = new List<string>()
+                            {
+
+                            };
+                            break;
+                        default:
+                            reviewText = new List<string>()
+                            {
+                                "You are the best human!",
+                                "I will miss you. And your food.",
+                                "You are the best friend I've ever had."
+                            };
+                            break;
+                    }
+                    break;
+             }
+        }
 
         public void buildIdleReview(int heartRating , int Type)
         {
@@ -266,30 +199,45 @@ public class catReviews : MonoBehaviour
             switch (heartRating)
             {
                 case 0:
-                    idleReviewText = new List<string>()
+                    switch (Type)
+                    {
+                        case 0: //Need met
+                            idleReviewText = new List<string>()
                             {
-                                "bad ",
-                                "un-uwu",
-                                "*angry cat noises*"
+                                "Maybe there is a place for me here.",
+                                "Is this what happiness feels like?",
+                                "Sleep is good. I like sleep."
                             };
+                            break;
+                        case 1: //Need not met
+                            idleReviewText = new List<string>()
+                            {
+                                "Nobody loves me.",
+                                "I’m so hungry.",
+                                "All alone…"
+                            };
+                            break;
+                    }
                     break;
+
                 case 1:
                     switch (Type) 
                     {
-                        case 0:
+                        case 0: //Need met
                             idleReviewText = new List<string>()
                             {
-                                "was good ",
-                                "uwu",
-                                "nyaaa , wuv u"
+                                "I'm glad I found my way here.",
+                                "These other cats seem alright after all.",
+                                "Thanks human!"
                             };
+
                             break;
-                        case 1:
+                        case 1: //Need not met
                             idleReviewText = new List<string>()
                             {
-                                "bad ",
-                                "un-uwu",
-                                "*angry cat noises*"
+                                "*angry cat noises*",
+                                "Why is nobody paying attention to me?",
+                                "I deserve better."
                             };
                             break;
                     }
@@ -297,20 +245,20 @@ public class catReviews : MonoBehaviour
                 case 2:
                     switch (Type)
                     {
-                        case 0:
+                        case 0: //Need met
                             idleReviewText = new List<string>()
                             {
-                                "was good ",
-                                "uwu",
-                                "nyaaa , wuv u"
+                                "The fire is bright… like my future.",
+                                "This carpet is comfortable.",
+                                "This human seems nice."
                             };
                             break;
-                        case 1:
+                        case 1: //Need not met
                             idleReviewText = new List<string>()
                             {
-                                "bad ",
-                                "un-uwu",
-                                "*angry cat noises*"
+                                "I hope there will be food left for me.",
+                                "I require attention.",
+                                "Why is the human ignoring me..."
                             };
                             break;
                     }
@@ -319,20 +267,20 @@ public class catReviews : MonoBehaviour
                 case 3:
                     switch (Type)
                     {
-                        case 0:
+                        case 0: //Need met
                             idleReviewText = new List<string>()
                             {
-                                "was good ",
-                                "uwu",
-                                "nyaaa , wuv u"
+                                "Thank you human.",
+                                "Will you be my friend?",
+                                "The other cats are fun to play with."
                             };
                             break;
-                        case 1:
+                        case 1: //Need not met
                             idleReviewText = new List<string>()
                             {
-                                "bad ",
-                                "un-uwu",
-                                "*angry cat noises*"
+                                "I thought the human loved me.",
+                                "Meow.",
+                                "*sad cat noises*"
                             };
                             break;
                     }
@@ -344,54 +292,30 @@ public class catReviews : MonoBehaviour
                         case 0:
                             idleReviewText = new List<string>()
                             {
-                                "was good ",
-                                "uwu",
-                                "nyaaa , wuv u"
+                                "I love this human!",
+                                "I’ve never been this happy before.",
+                                "*Purrs in contentment.*"
                             };
                             break;
                         case 1:
                             idleReviewText = new List<string>()
                             {
-                                "bad ",
-                                "un-uwu",
-                                "*angry cat noises*"
+                                "I have not been petted in minutes. I am disappointed.",
+                                "Don't you care about me?",
+                                "Guess I'll just keep myself company then."
                             };
                             break;
                     }
                     break;
-                case 5:
-                    switch (Type)
-                    {
-                        case 0:
-                            idleReviewText = new List<string>()
-                            {
-                                "was good ",
-                                "uwu",
-                                "nyaaa , wuv u"
-                            };
-                            break;
-                        case 1:
-                            idleReviewText = new List<string>()
-                            {
-                                "bad ",
-                                "un-uwu",
-                                "*angry cat noises*"
-                            };
-                            break;
-                    }
-                    break;
+
                 default:
                     idleReviewText = new List<string>()
                             {
-                                "was good ",
-                                "uwu",
-                                "nyaaa , wuv u"
+                                "Meow.",
+                                "I require attention.",
+                                "Sleep is good. I like sleep."
                             };
                     break;
-
-
-
-
             }
         }
      }
