@@ -576,7 +576,7 @@ MonoBehaviour:
   - Hoodeannii
   - Mischief
   CurrentNeed: 
-  Max_NeedTime: 20
+  Max_NeedTime: 23
   Min_NeedTime: 15
   NeedCountDownTimerMax: 10
   NeedTimeLeft: 0

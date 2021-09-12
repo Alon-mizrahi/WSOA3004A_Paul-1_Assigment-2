@@ -2340,11 +2340,11 @@ MonoBehaviour:
   DataCollector: {fileID: 1370293310}
   tempReviewText: {fileID: 1034290038}
   speedTxt: {fileID: 662434328}
-  fiveStarTime: 0
-  fourStarTime: 0
-  threeStarTime: 0
-  twoStarTime: 0
-  oneStarTime: 0
+  fiveStarTime: 130
+  fourStarTime: 161
+  threeStarTime: 192
+  twoStarTime: 223
+  oneStarTime: 254
 --- !u!4 &1654399726
 Transform:
   m_ObjectHideFlags: 0
