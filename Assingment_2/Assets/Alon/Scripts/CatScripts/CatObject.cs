@@ -90,9 +90,9 @@ public class CatObject : MonoBehaviour
     public int personality;
 
     //Audio
-    //public AudioSource CatSound1;
-    //public AudioSource CatSound2;
-    //public AudioSource CatSound3;
+    public AudioSource CatSound1;
+    public AudioSource CatSound2;
+    public AudioSource CatSound3;
 
 
     // Start is called before the first frame update
@@ -467,7 +467,7 @@ public class CatObject : MonoBehaviour
 
 
 
-    void OnMouseEnter()
+    void OnMouseDown()
     {
         AudioSource CatSound1 = GameObject.FindGameObjectWithTag("CatSound1").GetComponent<AudioSource>();
         AudioSource CatSound2 = GameObject.FindGameObjectWithTag("CatSound2").GetComponent<AudioSource>();
