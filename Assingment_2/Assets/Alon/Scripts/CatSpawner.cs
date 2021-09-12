@@ -37,9 +37,9 @@ public class CatSpawner : MonoBehaviour
 
     void BatchSpawner()
     {
-        NumberOfCatsToSpawn = 3 * BatchNumber; //3, 6, 9, 12 ... fine for now, can do a different intervals if time
-        Debug.Log("NumberOfCatsToSpawn: "+ NumberOfCatsToSpawn);
-        //SinusoidalSpawner(); //if use comment out above line
+        //NumberOfCatsToSpawn = 3 * BatchNumber; //3, 6, 9, 12 ... fine for now, can do a different intervals if time
+        //Debug.Log("NumberOfCatsToSpawn: "+ NumberOfCatsToSpawn);
+        SinusoidalSpawner(); //if use comment out above line
 
         for (int i = 0; i < NumberOfCatsToSpawn; i++)
         {
@@ -57,7 +57,7 @@ public class CatSpawner : MonoBehaviour
 
     void SinusoidalSpawner()
     {
-        float angle = Mathf.Abs(2*BatchNumber * Mathf.Sin(BatchNumber));//needs adjusting
+        float angle = 2 + Mathf.Abs(1*BatchNumber * Mathf.Sin(2*BatchNumber));//needs adjusting
 
         NumberOfCatsToSpawn = Mathf.Round(angle);
 

@@ -577,7 +577,7 @@ MonoBehaviour:
   - Mischief
   CurrentNeed: 
   Max_NeedTime: 23
-  Min_NeedTime: 15
+  Min_NeedTime: 14
   NeedCountDownTimerMax: 10
   NeedTimeLeft: 0
   hasNeed: 0

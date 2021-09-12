@@ -9,7 +9,7 @@ public class ExitDataCollection : MonoBehaviour
     //public float[] GradTime;
     //public int[] HeartCount;
 
-    public int index = 0;
+    //public int index = 0;
 
     public CatObject[] CatList;
     public List<string> catEndReviews;
@@ -79,8 +79,10 @@ public class ExitDataCollection : MonoBehaviour
 
     public void ClearRoundData()//clear arrays
     {
-        index = 0;
+        //index = 0;
+        
         foreach (Transform child in gameObject.transform) { GameObject.Destroy(child.gameObject); }
+        TotalCats = 0;
     }
 
 
