@@ -82,9 +82,6 @@ public class CatObject : MonoBehaviour
     //stasis
     public bool catStasis;
 
-
-
-
     //Rob Bools for animations
     public bool isMoving = false;
     public bool isPickUp = false;
@@ -92,11 +89,16 @@ public class CatObject : MonoBehaviour
     //personality 
     public int personality;
 
+    //Audio
+    //public AudioSource CatSound1;
+    //public AudioSource CatSound2;
+    //public AudioSource CatSound3;
+
 
     // Start is called before the first frame update
     void Start()
     {
-        personality = Random.Range(0, 5);
+        personality = Random.Range(0, 2);
 
 
         hearts.enabled = false;
@@ -111,7 +113,6 @@ public class CatObject : MonoBehaviour
         Name = GetName();
         SetUI();
         Nametxt.enabled = false;
-
     }
 
     // Update is called once per frame
@@ -466,7 +467,29 @@ public class CatObject : MonoBehaviour
 
 
 
-   
+    void OnMouseEnter()
+    {
+        AudioSource CatSound1 = GameObject.FindGameObjectWithTag("CatSound1").GetComponent<AudioSource>();
+        AudioSource CatSound2 = GameObject.FindGameObjectWithTag("CatSound2").GetComponent<AudioSource>();
+        AudioSource CatSound3 = GameObject.FindGameObjectWithTag("CatSound3").GetComponent<AudioSource>();
+
+        GetComponent<AudioSource>().clip = CatSound1.clip;
+        GetComponent<AudioSource>().clip = CatSound2.clip;
+        GetComponent<AudioSource>().clip = CatSound3.clip;
+
+        if (personality == 0)
+        {
+            CatSound1.Play();
+        }
+        if (personality == 1)
+        {
+            CatSound2.Play();
+        }
+        if (personality == 2)
+        {
+            CatSound3.Play();
+        }
+    }
  
     void OnMouseOver()
     {

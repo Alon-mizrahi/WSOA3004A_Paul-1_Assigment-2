@@ -7,6 +7,9 @@ TagManager:
   - Floor
   - Boundary
   - Cat
+  - CatSound1
+  - CatSound2
+  - CatSound3
   layers:
   - Default
   - TransparentFX
