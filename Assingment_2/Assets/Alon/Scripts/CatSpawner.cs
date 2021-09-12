@@ -57,6 +57,9 @@ public class CatSpawner : MonoBehaviour
 
     void SinusoidalSpawner()
     {
+        if (BatchNumber > 10) { BatchNumber = 5; }
+
+
         float angle = 2 + Mathf.Abs(1*BatchNumber * Mathf.Sin(2*BatchNumber));//needs adjusting
 
         NumberOfCatsToSpawn = Mathf.Round(angle);
