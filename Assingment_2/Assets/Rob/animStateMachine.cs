@@ -7,13 +7,15 @@ public class animStateMachine : MonoBehaviour
     public Animator catAnim;
     public catGen catGen;
     public CatObject catObjScr;
-    public bool isMoving, isMovePrev, isPickUp, isPickUpPrev; 
+    public bool isMoving, isMovePrev, isPickUp, isPickUpPrev;
+    public int fatRoll;
     // Start is called before the first frame update
     void Start()
     {
         catGen = this.GetComponent<catGen>();
         catAnim = this.GetComponent<Animator>();
         catObjScr = this.GetComponentInParent<CatObject>();
+        
     }
 
     // Update is called once per frame
@@ -34,15 +36,32 @@ public class animStateMachine : MonoBehaviour
                     }
                     else
                     {
-                        catAnim.Play("catFatWalk");
+                        fatRoll = Random.Range(0, 100);
+                        if (fatRoll < 50)
+                        {
+                            catAnim.Play("catFatWalk2");
+                        }
+                        else
+                        {
+                            catAnim.Play("catFatWalk");
+                        }
+                       
                     }
                    
                     //play movement anims
                 }
                 else
                 {
-                   
+
+                    if (!catGen.isFat)
+                    {
                         catAnim.Play("catIdleAnim");
+                    }
+                    else
+                    {
+                        catAnim.Play("catFatIdleAnim");
+                    }
+                        
                     //play idle anims
                 }
             }

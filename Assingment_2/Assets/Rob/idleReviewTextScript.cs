@@ -15,7 +15,7 @@ public class idleReviewTextScript : MonoBehaviour
         gm = GameObject.Find("GameManager").GetComponent<GameManager>();
         startingReviewSpeed = ReviewSpeed;
         this.transform.position = new Vector3(offScreenLeft, this.transform.position.y, this.transform.position.z);
-        gameObject.GetComponent<TextMeshProUGUI>().text = idleReviewTextQueue[0];
+        gameObject.GetComponent<TextMeshProUGUI>().text = "";
     }
 
     // Update is called once per frame
