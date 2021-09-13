@@ -58,7 +58,7 @@ public class GameManager : MonoBehaviour
         if(DataCollector.catEndReviews.Count != 0)
         {
             DataCollector.catEndReviews.RemoveAt(0);
-            if(DataCollector.catEndReviews.Count != null || DataCollector.catEndReviews.Count != 0)
+            if( DataCollector.catEndReviews.Count != 0) //DataCollector.catEndReviews.Count != null || //@Rob took this out cos was being wierd
             {
                 tempReviewText.text = DataCollector.catEndReviews[0];
             }

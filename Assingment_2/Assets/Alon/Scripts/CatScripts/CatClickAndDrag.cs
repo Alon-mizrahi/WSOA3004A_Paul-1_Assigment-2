@@ -29,7 +29,7 @@ public class CatClickAndDrag : MonoBehaviour
 
             Vector2 desiredPosition = mouseposition;
             Vector2 smoothedPosition = Vector2.Lerp(transform.position, desiredPosition, smoothSpeed);
-            transform.position = smoothedPosition; 
+            transform.position = new Vector3 (smoothedPosition.x , smoothedPosition.y, gameObject.transform.position.z); 
         }
     }
 

@@ -48,7 +48,7 @@ public class CatSpawner : MonoBehaviour
             SpawnedCat = Instantiate(Cat, gameObject.transform.position, Quaternion.identity);
 
 
-            SpawnedCat.transform.position = new Vector3(SpawnedCat.transform.position.x, SpawnedCat.transform.position.y, transform.position.z-0.8f*i);
+            SpawnedCat.transform.position = new Vector3(SpawnedCat.transform.position.x, SpawnedCat.transform.position.y, transform.position.z-i);
 
 
         }

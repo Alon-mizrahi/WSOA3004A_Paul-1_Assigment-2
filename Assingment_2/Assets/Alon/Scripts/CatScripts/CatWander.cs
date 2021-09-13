@@ -72,7 +72,7 @@ public class CatWander : MonoBehaviour
         {
             yield return new WaitForSeconds(Random.Range(3, 9)); //wait for some period
             //new target
-            Target = new Vector3(Random.Range(LeftBound, RightBound), Random.Range(LowerBond, UpperBound), 0);
+            Target = new Vector3(Random.Range(LeftBound, RightBound), Random.Range(LowerBond, UpperBound), gameObject.transform.position.z);
 
             if (gameObject.transform.position.x <= Target.x) //cat moving right
             {
@@ -155,7 +155,8 @@ public class CatWander : MonoBehaviour
         Debug.Log("NEED FAILED");
 
         speed = speed*1.6f;
-        Target = Exit.position;
+        //Target = Exit.position;
+        Target = new Vector3(Exit.position.x, Exit.position.y, gameObject.transform.position.z);
         ExitPos = Exit;
 
         gameObject.transform.eulerAngles = new Vector3(0, 180, 0);
@@ -167,7 +168,8 @@ public class CatWander : MonoBehaviour
         NeedFailed = true;
         CanMove = false;
         gameObject.transform.eulerAngles = new Vector3(0, 180, 0);
-        Target = ExitPos.position;
+        //Target = ExitPos.position;
+        Target = new Vector3(ExitPos.position.x, ExitPos.position.y, gameObject.transform.position.z);
         gameObject.transform.position = Vector3.MoveTowards(gameObject.transform.position, Target, Time.deltaTime * speed);
     }
 
@@ -178,7 +180,8 @@ public class CatWander : MonoBehaviour
         CanMove = false;
         
         speed = speed * 1.6f;
-        Target = Exit.position;
+        //Target = Exit.position;
+        Target = new Vector3(ExitPos.position.x, ExitPos.position.y, gameObject.transform.position.z);
         ExitPos = Exit;
 
         gameObject.transform.eulerAngles = new Vector3(0, 180, 0);
@@ -191,7 +194,8 @@ public class CatWander : MonoBehaviour
         NeedFailed = false;
         CanMove = false;
         gameObject.transform.eulerAngles = new Vector3(0, 180, 0);
-        Target = ExitPos.position;
+        Target = new Vector3(ExitPos.position.x , ExitPos.position.y, gameObject.transform.position.z);
+            
         gameObject.transform.position = Vector3.MoveTowards(gameObject.transform.position, Target, Time.deltaTime * speed);
     }
 }
