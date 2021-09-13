@@ -576,9 +576,9 @@ MonoBehaviour:
   - Hoodeannii
   - Mischief
   CurrentNeed: 
-  Max_NeedTime: 23
-  Min_NeedTime: 14
-  NeedCountDownTimerMax: 10
+  Max_NeedTime: 19
+  Min_NeedTime: 12
+  NeedCountDownTimerMax: 7
   NeedTimeLeft: 0
   hasNeed: 0
   NeedSet: 0
@@ -597,7 +597,7 @@ MonoBehaviour:
   holder: {fileID: 2386166062835950239, guid: 30d45af717e837d45b3fd079e7cdc326, type: 3}
   UIHolder: {fileID: 0}
   AtStation: 0
-  StationCountDownTimerMax: 8
+  StationCountDownTimerMax: 6
   StationTimeLeft: 0
   heartMax: 0
   heartCount: 0

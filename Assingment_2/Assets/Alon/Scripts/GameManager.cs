@@ -12,7 +12,8 @@ public class GameManager : MonoBehaviour
     public ExitDataCollection DataCollector;
     public TextMeshProUGUI tempReviewText;
 
-
+    public Image UntilFinishUI;
+    public ExitScript Exit;
 
     //testing
     public Text speedTxt;
@@ -29,6 +30,7 @@ public class GameManager : MonoBehaviour
     void Update()
     {
         if (Input.GetKeyDown(KeyCode.Escape)) { Application.Quit(); }
+        UntilBatchComplete();
     }
 
 
@@ -38,10 +40,10 @@ public class GameManager : MonoBehaviour
         // can read reviews,
         //game paused
         // button to go to nexed batch
+        Exit.NumberOfGraduates = 0;
         AfterBatch.gameObject.SetActive(true);
         DataCollector.GetCatData();
         tempReviewText.text = DataCollector.catEndReviews[0];
-
     }
 
     public void NexDay()//on Button Press
@@ -107,6 +109,14 @@ public class GameManager : MonoBehaviour
             return 0;
         }
     }
+
+
+    void UntilBatchComplete()
+    {
+        UntilFinishUI.fillAmount = Exit.NumberOfGraduates / Spawner.NumberOfCatsToSpawn;
+    }
+
+
 
 
 
