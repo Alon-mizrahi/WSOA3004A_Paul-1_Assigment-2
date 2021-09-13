@@ -10,6 +10,8 @@ public class CatSpawner : MonoBehaviour
     bool HaveSpawn = false;
     float NextSpawnTime;
 
+    GameObject SpawnedCat;
+
     //public GameObject[] CurrentCats;
 
     public int BatchNumber = 1;
@@ -43,7 +45,12 @@ public class CatSpawner : MonoBehaviour
 
         for (int i = 0; i < NumberOfCatsToSpawn; i++)
         {
-            Instantiate(Cat, gameObject.transform.position, Quaternion.identity);
+            SpawnedCat = Instantiate(Cat, gameObject.transform.position, Quaternion.identity);
+
+
+            SpawnedCat.transform.position = new Vector3(SpawnedCat.transform.position.x, SpawnedCat.transform.position.y, transform.position.z-0.8f*i);
+
+
         }
         BatchNumber++;
     }
