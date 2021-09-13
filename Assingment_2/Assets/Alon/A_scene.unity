@@ -509,7 +509,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 48a5545ea16254f4aa3d2fd99bd79245, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  MaxNumberOfCats: 3
+  MaxNumberOfCats: 10
   StationNeed: 
   CurrentCats: []
   ArrFull: 0
@@ -807,7 +807,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 48a5545ea16254f4aa3d2fd99bd79245, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  MaxNumberOfCats: 3
+  MaxNumberOfCats: 10
   StationNeed: 
   CurrentCats: []
   ArrFull: 0
@@ -933,7 +933,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 48a5545ea16254f4aa3d2fd99bd79245, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  MaxNumberOfCats: 3
+  MaxNumberOfCats: 10
   StationNeed: 
   CurrentCats: []
   ArrFull: 0
@@ -1059,7 +1059,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 48a5545ea16254f4aa3d2fd99bd79245, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  MaxNumberOfCats: 3
+  MaxNumberOfCats: 10
   StationNeed: 
   CurrentCats: []
   ArrFull: 0
@@ -2071,7 +2071,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1d18f58fdd301a549b277c4fe88c6847, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  index: 0
   CatList: []
   catEndReviews: []
   TotalCats: 0

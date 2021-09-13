@@ -84,6 +84,35 @@ public class NewStationScript : MonoBehaviour
     }
 
 
+
+    private void OnTriggerStay2D(Collider2D other)
+    {
+        if (other.gameObject.tag == "Cat" && StationNeed == other.gameObject.GetComponent<CatObject>().CurrentNeed && ArrFull == false && other.gameObject.GetComponent<CatObject>().CurrentNeed != "")
+        {
+            if (other.gameObject.GetComponent<CatObject>().AtStation == false)
+            {
+                other.gameObject.GetComponent<CatObject>().AtStation = true;
+
+                //add to array
+                AddToArray(other.gameObject);
+                //cat things
+                Debug.Log("GOT IN!!");
+
+
+                other.gameObject.GetComponent<CatObject>().ResetTimer();
+                other.gameObject.GetComponent<CatObject>().CanWander = false;
+                other.gameObject.GetComponent<CatClickAndDrag>().CanDrag = false;
+                other.gameObject.GetComponent<CatObject>().TurnOffSpeechBubble();
+
+                other.gameObject.GetComponent<CatObject>().isPickUp = false;
+                other.gameObject.GetComponent<CatObject>().isMoving = false;
+            }
+
+        }
+    }
+
+
+
     void AddToArray(GameObject Cat)
     {
         Debug.Log("TryingToAddTo: " + gameObject.name);
