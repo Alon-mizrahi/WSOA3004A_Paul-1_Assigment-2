@@ -181,7 +181,7 @@ public class CatWander : MonoBehaviour
         
         speed = speed * 1.6f;
         //Target = Exit.position;
-        Target = new Vector3(ExitPos.position.x, ExitPos.position.y, gameObject.transform.position.z);
+        Target = new Vector3(Exit.position.x, Exit.position.y, gameObject.transform.position.z);
         ExitPos = Exit;
 
         gameObject.transform.eulerAngles = new Vector3(0, 180, 0);
