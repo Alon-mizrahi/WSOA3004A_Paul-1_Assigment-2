@@ -51,7 +51,7 @@ public class idleReviewTextScript : MonoBehaviour
         if(idleReviewTextQueue.Count > 0)
         {
             idleReviewTextQueue.RemoveAt(0);
-            gameObject.GetComponent<TextMeshProUGUI>().text = idleReviewTextQueue[0];
+            if(idleReviewTextQueue.Count != 0 || idleReviewTextQueue.Count != null) gameObject.GetComponent<TextMeshProUGUI>().text = idleReviewTextQueue[0];
         }
         else
         {
