@@ -26,7 +26,7 @@ public class idleReviewTextScript : MonoBehaviour
 
         if(idleReviewTextQueue.Count >= 10)
         {
-            ReviewSpeed = 0.5f * Time.timeScale;
+            ReviewSpeed = 0.6f * Time.timeScale;
         }
         else
         {

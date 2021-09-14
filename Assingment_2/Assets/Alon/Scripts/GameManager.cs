@@ -11,7 +11,7 @@ public class GameManager : MonoBehaviour
     CatSpawner Spawner;
     public GameObject AfterBatch;
     public ExitDataCollection DataCollector;
-    public TextMeshProUGUI tempReviewText;
+    public TextMeshProUGUI tempReviewText , totalUI;
 
     public Image UntilFinishUI;
     public ExitScript Exit;
@@ -128,7 +128,8 @@ public class GameManager : MonoBehaviour
 
     void UntilBatchComplete()
     {
-        UntilFinishUI.fillAmount = Exit.NumberOfGraduates / Spawner.NumberOfCatsToSpawn;
+        totalUI.text = "" + Exit.NumberOfGraduates + "\n " + "/" + Spawner.NumberOfCatsToSpawn;
+        //UntilFinishUI.fillAmount = Exit.NumberOfGraduates / Spawner.NumberOfCatsToSpawn;
     }
 
 
