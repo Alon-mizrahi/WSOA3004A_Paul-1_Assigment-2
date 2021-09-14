@@ -628,9 +628,9 @@ RectTransform:
   m_Father: {fileID: 746445595}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -341.1, y: 178.6}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 36.5, y: -34}
   m_SizeDelta: {x: 50, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &404051557
@@ -2627,11 +2627,11 @@ MonoBehaviour:
   UntilFinishUI: {fileID: 404051558}
   Exit: {fileID: 2107158894}
   speedTxt: {fileID: 662434328}
-  fiveStarTime: 130
-  fourStarTime: 161
-  threeStarTime: 192
-  twoStarTime: 223
-  oneStarTime: 254
+  fiveStarTime: 77
+  fourStarTime: 100
+  threeStarTime: 130
+  twoStarTime: 150
+  oneStarTime: 160
   reviewAnim: {fileID: 1435241054}
 --- !u!4 &1654399726
 Transform:
