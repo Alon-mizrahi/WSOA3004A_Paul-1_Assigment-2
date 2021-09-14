@@ -8,7 +8,7 @@ public class GameManager : MonoBehaviour
 {
 
     CatSpawner Spawner;
-    public Image AfterBatch;
+    public GameObject AfterBatch;
     public ExitDataCollection DataCollector;
     public TextMeshProUGUI tempReviewText;
 
@@ -18,6 +18,7 @@ public class GameManager : MonoBehaviour
     //testing
     public Text speedTxt;
     public float fiveStarTime , fourStarTime , threeStarTime , twoStarTime , oneStarTime;
+    public Animator reviewAnim;
 
 
     // Start is called before the first frame update
@@ -60,6 +61,7 @@ public class GameManager : MonoBehaviour
             DataCollector.catEndReviews.RemoveAt(0);
             if( DataCollector.catEndReviews.Count != 0)  //@Rob took this out cos was being wierd
             {
+                reviewAnim.Play("ReviewAnim");
                 tempReviewText.text = DataCollector.catEndReviews[0];
             }
             
