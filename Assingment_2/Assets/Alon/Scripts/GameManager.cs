@@ -58,7 +58,7 @@ public class GameManager : MonoBehaviour
         if(DataCollector.catEndReviews.Count != 0)
         {
             DataCollector.catEndReviews.RemoveAt(0);
-            if( DataCollector.catEndReviews.Count != 0) //DataCollector.catEndReviews.Count != null || //@Rob took this out cos was being wierd
+            if( DataCollector.catEndReviews.Count != 0)  //@Rob took this out cos was being wierd
             {
                 tempReviewText.text = DataCollector.catEndReviews[0];
             }
@@ -110,6 +110,14 @@ public class GameManager : MonoBehaviour
         }
         else
         {
+            if (gradTime <= fiveStarTime) return 0;
+
+            if (gradTime > fiveStarTime && gradTime < threeStarTime) return 1;
+
+            if (gradTime > threeStarTime && gradTime < twoStarTime) return 2;
+
+            if (gradTime > twoStarTime) return 3;
+
             return 0;
         }
     }
