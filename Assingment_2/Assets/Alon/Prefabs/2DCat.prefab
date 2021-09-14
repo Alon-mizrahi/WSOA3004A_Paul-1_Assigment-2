@@ -621,6 +621,8 @@ MonoBehaviour:
   isMoving: 0
   isPickUp: 0
   personality: 0
+  rollForDeadBirb: 0
+  deadBirb: {fileID: 3683917143964711679, guid: a3ee11270d2ab2544a7ada75135713cd, type: 3}
   CatSound1: {fileID: 0}
   CatSound2: {fileID: 0}
   CatSound3: {fileID: 0}

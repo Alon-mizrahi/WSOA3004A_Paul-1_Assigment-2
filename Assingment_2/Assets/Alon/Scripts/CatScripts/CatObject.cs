@@ -87,7 +87,8 @@ public class CatObject : MonoBehaviour
     public bool isPickUp = false;
 
     //personality 
-    public int personality;
+    public int personality,rollForDeadBirb;
+    public GameObject deadBirb;
 
     //Audio
     public AudioSource CatSound1;
@@ -360,6 +361,15 @@ public class CatObject : MonoBehaviour
                 heartCount--;
                 heartsLost++;
                 IdleReviewBad();
+                rollForDeadBirb = Random.Range(0, 100);
+
+                if(heartCount >= 3)
+                {
+                    if(rollForDeadBirb <= 20)
+                    {
+                        Instantiate(deadBirb, transform.position, Quaternion.identity);
+                    }
+                }
 
                 if(heartCount != 0)
                 {
